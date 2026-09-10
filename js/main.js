@@ -697,7 +697,7 @@
           `_Submitted via Yash Industries Official RFQ Desk_`;
 
         const encodedMsg = encodeURIComponent(waMessage);
-        const waUrl = `https://wa.me/919881408460?text=${encodedMsg}`;
+        const waUrl = `https://wa.me/911234567890?text=${encodedMsg}`;
 
         showToast('Generating official WhatsApp RFQ ticket...');
         setTimeout(() => window.open(waUrl, '_blank'), 600);
@@ -728,7 +728,7 @@
           `Thank you,\n${data.name}\n${data.company}`
         );
 
-        const mailtoUrl = `mailto:quote@yashindustries.com,yashindustries.pune@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+        const mailtoUrl = `mailto:yashindustries018@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
         showToast('Opening official business email client...');
         setTimeout(() => { window.location.href = mailtoUrl; }, 600);
@@ -798,7 +798,7 @@
       const msg = document.getElementById('contact-message')?.value.trim();
 
       const text = `Inquiry from ${name} (${company}): ${msg}`;
-      const waUrl = `https://wa.me/919881408460?text=${encodeURIComponent(text)}`;
+      const waUrl = `https://wa.me/911234567890?text=${encodeURIComponent(text)}`;
 
       showToast('Thank you! Redirecting to Yash Industries Engineering Desk...');
       setTimeout(() => window.open(waUrl, '_blank'), 700);

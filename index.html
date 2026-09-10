@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Yash Industry | Precision CNC Machining &amp; Power Transmission Components | Pune, India</title>
+  
+  <meta name="description" content="Yash Industry is an ISO 9001:2015 certified precision manufacturer in Pune, India. High-precision CNC Turning, 5-Axis VMC Milling, Rollers, Sprockets, Gears, Pinions, Lead Screws, and Custom Machining down to ±0.002 mm.">
+  <meta name="keywords" content="Yash Industry, Precision Machining Pune, CNC Turning, 5-Axis VMC, Industrial Rollers, Sprockets, Gears, Pinions, Lead Screws, Custom Machining, Narhe Industrial Estate, Ambegaon BK Pune">
+  <meta name="author" content="Yash Industry">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230284c7' stroke-width='2'><polygon points='12 2 2 7 12 12 22 7 12 2'></polygon><polyline points='2 17 12 22 22 17'></polyline><polyline points='2 12 12 17 22 12'></polyline></svg>">
+
+  <!-- Google Fonts: Modern Clean Corporate Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- =========================================================================
+       TOP UTILITY BAR (PLANT LOCATION, CONTACT & CERTIFICATION)
+       ========================================================================= -->
+  <div class="top-utility-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-item">
+          <i data-lucide="map-pin" style="width: 13px; height: 13px; color: var(--accent-blue);"></i>
+          Narhe Industrial Estate, Ambegaon BK, Pune – 411041, India
+        </span>
+        <span class="top-bar-item">
+          <i data-lucide="clock" style="width: 13px; height: 13px; color: var(--accent-amber);"></i>
+          Plant 24/7 (3 Continuous Shifts)
+        </span>
+        <span class="top-bar-item">
+          IST Pune: <strong id="telemetry-clock" style="margin-left: 4px; color: #38bdf8;">--:--:--</strong>
+        </span>
+      </div>
+      <div class="top-bar-right">
+        <span class="top-bar-item">
+          <i data-lucide="phone-call" style="width: 13px; height: 13px; color: #10b981;"></i>
+          <a href="tel:+919881408460">+91 98814 08460</a>
+        </span>
+        <span class="top-bar-item">
+          <i data-lucide="mail" style="width: 13px; height: 13px; color: #38bdf8;"></i>
+          <a href="mailto:quote@yashindustries.com">quote@yashindustries.com</a>
+        </span>
+        <span class="top-iso-badge">ISO 9001:2015 CERTIFIED</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       STICKY MAIN HEADER & NAVIGATION
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a class="brand-logo" data-tab="home" aria-label="Yash Industry Home">
+        <div class="brand-symbol">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+            <circle cx="12" cy="12" r="3.5" fill="#0284c7"></circle>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">YASH <span>INDUSTRY</span></span>
+          <span class="brand-tagline">ESTD. 1981 • PRECISION MANUFACTURING</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (9 Core Tabs) -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a class="nav-link active-tab" data-tab="home">Home</a></li>
+          <li><a class="nav-link" data-tab="about">About Us</a></li>
+          <li><a class="nav-link" data-tab="capabilities">Capabilities</a></li>
+          <li><a class="nav-link" data-tab="infrastructure">Infrastructure</a></li>
+          <li><a class="nav-link" data-tab="rfq">Request a Quote</a></li>
+          <li><a class="nav-link" data-tab="customers">Customers</a></li>
+          <li><a class="nav-link" data-tab="gallery">Gallery</a></li>
+          <li><a class="nav-link" data-tab="downloads">Downloads</a></li>
+          <li><a class="nav-link" data-tab="contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Separated with Visual Divider) -->
+      <div class="nav-actions">
+        <div class="nav-action-divider" aria-hidden="true"></div>
+
+        <!-- Day / Night Theme Switcher (Interactive Industrial Pill Toggle) -->
+        <button type="button" class="theme-switch-pill" id="btn-theme-toggle" aria-label="Toggle Theme (Day / Night)" title="Toggle Theme (Day / Night)">
+          <span class="theme-pill-track">
+            <span class="pill-icon pill-icon-sun" aria-hidden="true"><i data-lucide="sun" style="width: 12px; height: 12px;"></i></span>
+            <span class="pill-icon pill-icon-moon" aria-hidden="true"><i data-lucide="moon" style="width: 12px; height: 12px;"></i></span>
+          </span>
+          <span class="theme-switch-thumb" id="theme-switch-thumb">
+            <i data-lucide="sun" style="width: 13px; height: 13px;"></i>
+          </span>
+        </button>
+
+        <!-- Direct RFQ Action -->
+        <a class="btn-header-rfq" data-tab="rfq">
+          <i data-lucide="file-up" style="width: 15px; height: 15px;"></i>
+          <span>Get Quote</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Slide-out Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-light);">
+        <div class="brand-logo" data-tab="home">
+          <div class="brand-symbol" style="width: 36px; height: 36px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+              <circle cx="12" cy="12" r="3.5" fill="#0284c7"></circle>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name" style="font-size: 1.15rem;">YASH <span>INDUSTRY</span></span>
+          </div>
+        </div>
+
+        <button type="button" class="btn-theme-toggle" id="btn-theme-toggle-mobile" style="width: auto; height: 36px; padding: 0 0.75rem; gap: 0.4rem; font-size: 0.8rem; font-weight: 600;">
+          <i data-lucide="moon" style="width: 16px; height: 16px;"></i>
+          <span>Dark Mode</span>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-list">
+        <li><a class="mobile-nav-link active-tab" data-tab="home"><span>Home</span> <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a></li>
+        <li><a class="mobile-nav-link" data-tab="about"><span>About Us &amp; Founder</span> <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a></li>
+        <li><a class="mobile-nav-link" data-tab="capabilities"><span>Capabilities</span> <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a></li>
+        <li><a class="mobile-nav-link" data-tab="infrastructure"><span>Infrastructure</span> <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a></li>
+        <li><a class="mobile-nav-link" data-tab="rfq"><span>Request a Quote</span> <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a></li>
+        <li><a class="mobile-nav-link" data-tab="customers"><span>Customers</span> <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a></li>
+        <li><a class="mobile-nav-link" data-tab="gallery"><span>Gallery</span> <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a></li>
+        <li><a class="mobile-nav-link" data-tab="downloads"><span>Downloads</span> <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a></li>
+        <li><a class="mobile-nav-link" data-tab="contact"><span>Contact</span> <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a></li>
+      </ul>
+    </div>
+
+    <div style="border-top: 1px solid var(--border-light); padding-top: 1.25rem;">
+      <a class="btn-primary-corporate" data-tab="rfq" style="width: 100%; justify-content: center; margin-bottom: 0.75rem;">
+        <i data-lucide="file-up" style="width: 16px; height: 16px;"></i>
+        Request Instant Quote
+      </a>
+      <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center;">ISO 9001:2015 Certified • Pune, India</p>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       PAGE 1: 🏠 HOME (DEFAULT ACTIVE TAB)
+       ========================================================================= -->
+  <div class="page-view active-page" id="page-home">
+    
+    <!-- Modern Corporate Hero Section -->
+    <section class="hero-corporate-section">
+      <div class="container hero-corporate-grid">
+        
+        <div class="hero-corporate-content">
+          <div class="hero-badge-pill">
+            <i data-lucide="award" style="width: 14px; height: 14px;"></i>
+            <span>ESTD. 1981 • ISO 9001:2015 CERTIFIED PRECISION MANUFACTURING</span>
+          </div>
+
+          <h1 class="hero-corporate-title">
+            Precision CNC Machining &amp; <br>
+            <span class="highlight-blue">Transmission Engineering</span>
+          </h1>
+
+          <p class="hero-corporate-desc">
+            Yash Industry is an accredited precision manufacturing leader based in Pune, India. Specializing in high-tolerance CNC turned parts, 5-axis VMC milled components, industrial rollers, sprockets, gears, and custom machining engineered down to ±0.002 mm for Tier-1 OEMs worldwide.
+          </p>
+
+          <div class="hero-corporate-actions">
+            <a class="btn-primary-corporate" data-tab="rfq">
+              <i data-lucide="file-up" style="width: 18px; height: 18px;"></i>
+              <span>Request a Quote (CAD / 2D)</span>
+            </a>
+            <a class="btn-outline-corporate" data-tab="capabilities">
+              <i data-lucide="compass" style="width: 18px; height: 18px;"></i>
+              <span>Explore Capabilities</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Specs Matrix Card -->
+        <div class="hero-matrix-card">
+          <div class="matrix-header">
+            <span class="matrix-title">MANUFACTURING AT A GLANCE</span>
+            <span class="matrix-badge"><span class="matrix-live-dot"></span> ISO 9001:2015</span>
+          </div>
+
+          <div class="matrix-grid">
+            <div class="matrix-item">
+              <div class="matrix-val">±0.002 mm</div>
+              <div class="matrix-lbl">Machining Precision</div>
+            </div>
+            <div class="matrix-item">
+              <div class="matrix-val">250,000+</div>
+              <div class="matrix-lbl">Monthly Units Capacity</div>
+            </div>
+            <div class="matrix-item">
+              <div class="matrix-val">25,000 sq.ft</div>
+              <div class="matrix-lbl">Modern Pune Plant</div>
+            </div>
+            <div class="matrix-item">
+              <div class="matrix-val">40+ Years</div>
+              <div class="matrix-lbl">Heritage Since 1981</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Clean Corporate Stats Banner -->
+    <section class="stats-banner-clean">
+      <div class="container stats-grid-clean">
+        
+        <div class="stat-card-clean">
+          <div class="stat-icon-wrap">
+            <i data-lucide="crosshair" style="width: 26px; height: 26px;"></i>
+          </div>
+          <div class="stat-data">
+            <div class="stat-number stat-num-clean" data-target="0.002">
+              <span class="val">0.000</span><span class="unit" style="font-size: 1.2rem; margin-left: 2px;">mm</span>
+            </div>
+            <div class="stat-title-clean">Machining Tolerance</div>
+            <div class="stat-desc-clean">Sub-micron CMM verified</div>
+          </div>
+        </div>
+
+        <div class="stat-card-clean">
+          <div class="stat-icon-wrap">
+            <i data-lucide="calendar" style="width: 26px; height: 26px;"></i>
+          </div>
+          <div class="stat-data">
+            <div class="stat-number stat-num-clean" data-target="40">
+              <span class="val">0</span><span class="unit" style="font-size: 1.2rem; margin-left: 2px;">+ Years</span>
+            </div>
+            <div class="stat-title-clean">Manufacturing Legacy</div>
+            <div class="stat-desc-clean">Established in Pune, 1981</div>
+          </div>
+        </div>
+
+        <div class="stat-card-clean">
+          <div class="stat-icon-wrap">
+            <i data-lucide="cpu" style="width: 26px; height: 26px;"></i>
+          </div>
+          <div class="stat-data">
+            <div class="stat-number stat-num-clean" data-target="250000">
+              <span class="val">0</span><span class="unit" style="font-size: 1.2rem; margin-left: 2px;">+</span>
+            </div>
+            <div class="stat-title-clean">Monthly Components</div>
+            <div class="stat-desc-clean">Zero-defect batch capacity</div>
+          </div>
+        </div>
+
+        <div class="stat-card-clean">
+          <div class="stat-icon-wrap">
+            <i data-lucide="check-circle" style="width: 26px; height: 26px;"></i>
+          </div>
+          <div class="stat-data">
+            <div class="stat-number stat-num-clean" data-target="99.8">
+              <span class="val">0</span><span class="unit" style="font-size: 1.2rem; margin-left: 2px;">%</span>
+            </div>
+            <div class="stat-title-clean">First-Pass Yield</div>
+            <div class="stat-desc-clean">Rigorous metrology protocol</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Prominent Executive Founder Spotlight Section -->
+    <section class="home-founder-corporate">
+      <div class="container">
+        
+        <div class="founder-corporate-card">
+          
+          <!-- Photo Column -->
+          <div class="founder-photo-box">
+            <div class="founder-frame">
+              <img src="assets/founder.jpeg"
+     alt="Mr. Ganesh A. Dange - Founder & Managing Director, Yash Industry"
+     class="founder-img">
+              <div class="founder-badge-pill">
+                <span class="badge-years-lg">40+</span>
+                <span class="badge-text-sm">Years of Engineering Leadership</span>
+              </div>
+            </div>
+            <div class="founder-est-tag">
+              <i data-lucide="award" style="width: 16px; height: 16px; color: var(--accent-amber);"></i>
+              <span>ESTABLISHED 1981 • PUNE, INDIA</span>
+            </div>
+          </div>
+
+          <!-- Content Column -->
+          <div class="founder-content-box">
+            <div class="section-tag-gold">
+              <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+              <span>EXECUTIVE LEADERSHIP SPOTLIGHT</span>
+            </div>
+
+            <h2 class="founder-name-h2">Mr. Ganesh A. Dange</h2>
+            <div class="founder-role-title">FOUNDER &amp; MANAGING DIRECTOR • PIONEER IN PRECISION ENGINEERING</div>
+
+            <p class="founder-bio-p">
+              In 1981, <strong>Mr. Ganesh A. Dange</strong> established Yash Industry in Pune with a single precision manual lathe, an unwavering mastery of metallurgy, and an unrelenting passion for mechanical perfection. Over four decades of hands-on technical guidance, engineering ingenuity, and uncompromising quality discipline, he guided Yash Industry from a specialized toolroom into an internationally accredited CNC manufacturing powerhouse supplying critical transmission components to Tier-1 OEMs worldwide.
+            </p>
+
+            <div class="founder-quote-clean">
+              <p>
+                "In precision machining, a single micron is everything. We do not merely cut metal—we engineer absolute reliability, metallurgical integrity, and zero-defect peace of mind into our clients' mission-critical machinery."
+              </p>
+            </div>
+
+            <div class="founder-chips-grid">
+              <div class="founder-chip-item">
+                <div class="chip-val">1981</div>
+                <div class="chip-lbl">Founding Year</div>
+              </div>
+              <div class="founder-chip-item">
+                <div class="chip-val">40+</div>
+                <div class="chip-lbl">Years Heritage</div>
+              </div>
+              <div class="founder-chip-item">
+                <div class="chip-val">1,200+</div>
+                <div class="chip-lbl">Toolings Built</div>
+              </div>
+              <div class="founder-chip-item">
+                <div class="chip-val">&lt; 2 µm</div>
+                <div class="chip-lbl">Verified Runout</div>
+              </div>
+            </div>
+
+            <div class="founder-actions-row">
+              <a class="btn-primary-corporate" data-tab="rfq">
+                <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+                <span>Consult Engineering Desk (RFQ)</span>
+              </a>
+              <a class="btn-outline-corporate" data-tab="about" style="color: var(--primary); border-color: var(--border-medium);">
+                <i data-lucide="book-open" style="width: 16px; height: 16px;"></i>
+                <span>Read Full 40-Year Heritage</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Core Capabilities Grid (6 Clean Cards) -->
+    <section class="capabilities-clean-section">
+      <div class="container">
+        
+        <div class="capabilities-header-center">
+          <div class="section-tag">
+            <i data-lucide="cpu" style="width: 13px; height: 13px;"></i>
+            <span>PRECISION CAPABILITIES</span>
+          </div>
+          <h2 class="section-title">Comprehensive Industrial Machining Services</h2>
+          <p class="section-subtitle">From high-volume OEM batch production to drawing-based custom component engineering, manufactured with strict DIN and ISO tolerances.</p>
+        </div>
+
+        <div class="capabilities-grid-clean">
+          
+          <div class="capability-card-clean" data-tab="capabilities">
+            <div class="cap-icon-box"><i data-lucide="disc" style="width: 26px; height: 26px;"></i></div>
+            <h3 class="cap-title">Multi-Axis CNC Turning</h3>
+            <p class="cap-desc">Twin-spindle high-speed CNC turning centers with driven live tooling for simultaneous turning, threading, and cross-milling in a single chucking.</p>
+            <ul class="cap-specs-list">
+              <li><i data-lucide="check"></i> Diameter: Ø3 mm to Ø250 mm</li>
+              <li><i data-lucide="check"></i> Concentricity: &lt; 0.003 mm</li>
+              <li><i data-lucide="check"></i> Continuous bar-feeder automation</li>
+            </ul>
+            <span class="cap-cta-link">Explore Turning Specs <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+          </div>
+
+          <div class="capability-card-clean" data-tab="capabilities">
+            <div class="cap-icon-box"><i data-lucide="box" style="width: 26px; height: 26px;"></i></div>
+            <h3 class="cap-title">4 &amp; 5-Axis VMC Milling</h3>
+            <p class="cap-desc">Synchronous multi-axis vertical machining for complex prismatic housings, hydraulic valve blocks, pump manifolds, and aerospace brackets.</p>
+            <ul class="cap-specs-list">
+              <li><i data-lucide="check"></i> Travel: 850 x 510 x 510 mm</li>
+              <li><i data-lucide="check"></i> 15,000 RPM high-speed spindles</li>
+              <li><i data-lucide="check"></i> Renishaw in-process probe inspection</li>
+            </ul>
+            <span class="cap-cta-link">Explore Milling Specs <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+          </div>
+
+          <div class="capability-card-clean" data-tab="capabilities">
+            <div class="cap-icon-box"><i data-lucide="settings" style="width: 26px; height: 26px;"></i></div>
+            <h3 class="cap-title">Gears, Sprockets &amp; Pinions</h3>
+            <p class="cap-desc">Induction-hardened transmission sprockets, profile-ground spur and helical gears, spline shafts, and pinions engineered for silent high-torque operation.</p>
+            <ul class="cap-specs-list">
+              <li><i data-lucide="check"></i> Module 1.0 to Module 12.0</li>
+              <li><i data-lucide="check"></i> Flank ground to DIN Class 6</li>
+              <li><i data-lucide="check"></i> Case hardened 58 - 62 HRC</li>
+            </ul>
+            <span class="cap-cta-link">Explore Gearing Specs <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+          </div>
+
+          <div class="capability-card-clean" data-tab="capabilities">
+            <div class="cap-icon-box"><i data-lucide="cylinder" style="width: 26px; height: 26px;"></i></div>
+            <h3 class="cap-title">Industrial Conveyor Rollers</h3>
+            <p class="cap-desc">Heavy-duty conveyor, drive, and idler rollers manufactured from precision steel tubes with dynamically balanced journals for high-speed automated lines.</p>
+            <ul class="cap-specs-list">
+              <li><i data-lucide="check"></i> Diameters up to Ø400 mm x 3.5m</li>
+              <li><i data-lucide="check"></i> ISO 1940 Grade G2.5 balanced</li>
+              <li><i data-lucide="check"></i> Rubber lagging &amp; hard chrome finish</li>
+            </ul>
+            <span class="cap-cta-link">Explore Roller Specs <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+          </div>
+
+          <div class="capability-card-clean" data-tab="capabilities">
+            <div class="cap-icon-box"><i data-lucide="git-pull-request" style="width: 26px; height: 26px;"></i></div>
+            <h3 class="cap-title">Precision Lead Screws</h3>
+            <p class="cap-desc">Hydraulic thread rolled and whirled trapezoidal (Tr) and Acme lead screws with mating phosphor bronze nuts for smooth linear actuation.</p>
+            <ul class="cap-specs-list">
+              <li><i data-lucide="check"></i> Tr 10x2 to Tr 100x12 profiles</li>
+              <li><i data-lucide="check"></i> Lead error: ±0.01 mm / 300 mm</li>
+              <li><i data-lucide="check"></i> Unbroken cold-formed grain flow</li>
+            </ul>
+            <span class="cap-cta-link">Explore Lead Screw Specs <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+          </div>
+
+          <div class="capability-card-clean" data-tab="infrastructure">
+            <div class="cap-icon-box"><i data-lucide="microscope" style="width: 26px; height: 26px;"></i></div>
+            <h3 class="cap-title">CMM Metrology &amp; Quality</h3>
+            <p class="cap-desc">Climate-controlled inspection laboratory equipped with 3D CMM, optical contour projectors, calibrated bore gauges, and surface roughness testers.</p>
+            <ul class="cap-specs-list">
+              <li><i data-lucide="check"></i> Sub-micron 3D CMM coordinate reports</li>
+              <li><i data-lucide="check"></i> EN 10204 3.1 Mill Certifications</li>
+              <li><i data-lucide="check"></i> 100% Dimensional Batch Traceability</li>
+            </ul>
+            <span class="cap-cta-link">Explore Metrology Lab <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Why Choose Yash Industry (Trust Pillars) -->
+    <section class="why-choose-section">
+      <div class="container">
+        
+        <div class="capabilities-header-center">
+          <div class="section-tag">
+            <i data-lucide="shield" style="width: 13px; height: 13px;"></i>
+            <span>WHY CHOOSE US</span>
+          </div>
+          <h2 class="section-title">The Benchmark for Precision Engineering</h2>
+          <p class="section-subtitle">Over 40 years of stability, engineering integrity, and zero-defect precision trusted by OEM leaders.</p>
+        </div>
+
+        <div class="why-choose-grid">
+          <div class="why-card">
+            <div class="why-icon"><i data-lucide="target" style="width: 24px; height: 24px;"></i></div>
+            <h4 class="why-title">±0.002 mm Tolerances</h4>
+            <p class="why-desc">Sub-micron accuracy verified with calibrated Mitutoyo 3D CMM metrology and statistical process control.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon"><i data-lucide="award" style="width: 24px; height: 24px;"></i></div>
+            <h4 class="why-title">40+ Years Legacy</h4>
+            <p class="why-desc">Continuous leadership and technical excellence under founder Mr. Yashwant R. Patil since 1981 in Pune.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon"><i data-lucide="factory" style="width: 24px; height: 24px;"></i></div>
+            <h4 class="why-title">24/7 Production</h4>
+            <p class="why-desc">25,000 sq. ft. modern facility running three continuous shifts to guarantee reliable on-time delivery.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon"><i data-lucide="globe-2" style="width: 24px; height: 24px;"></i></div>
+            <h4 class="why-title">Global Export Ready</h4>
+            <p class="why-desc">VCI anti-corrosion packaging, wooden crates, and seamless logistics to Tier-1 OEMs in Europe and Asia.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- =========================================================================
+       PAGE 2: 🏢 ABOUT US (HERITAGE, PROPRIETOR & VISION)
+       ========================================================================= -->
+  <div class="page-view" id="page-about">
+    <div class="page-hero-banner">
+      <div class="container">
+        <div class="breadcrumb-bar"><a data-tab="home">Home</a> / <span>About Us</span></div>
+        <h1 class="page-banner-title">COMPANY HERITAGE &amp; <span class="glow">LEADERSHIP</span></h1>
+        <p class="page-banner-sub">Four decades of precision manufacturing excellence, engineering innovation, and proprietor-led vision in Pune, India.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="about-main-grid">
+        
+        <div>
+          <div class="section-tag">OUR STORY</div>
+          <h2 class="section-title">Built on Precision, Sustained by Trust</h2>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.25rem;">
+            Founded in Pune in 1981, <strong>Yash Industry</strong> has evolved from an ambitious precision machining shop into an advanced engineering powerhouse. Today, we stand as a certified ISO 9001:2015 Tier-1 supplier to major OEMs across India, Europe, and Scandinavia.
+          </p>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+            Specializing in both high-volume standardized components (rollers, sprockets, gears, pinions, lead screws, fasteners) and intricate drawing-based custom machining, our facility encompasses multi-axis CNC lathes, vertical machining centers, precision cylindrical grinding, and a climate-controlled Metrology Lab.
+          </p>
+
+          <div class="about-features-grid">
+            <div class="about-feature-box">
+              <div style="color: var(--accent-blue);"><i data-lucide="shield-check" style="width: 24px; height: 24px;"></i></div>
+              <div>
+                <h4>ISO 9001:2015 Certified</h4>
+                <p>Full process traceability with EN 10204 3.1 Mill Test Certification.</p>
+              </div>
+            </div>
+            <div class="about-feature-box">
+              <div style="color: var(--accent-blue);"><i data-lucide="cpu" style="width: 24px; height: 24px;"></i></div>
+              <div>
+                <h4>Industry 4.0 Fleet</h4>
+                <p>Real-time CNC tool monitoring and live CAD/CAM toolpath simulation.</p>
+              </div>
+            </div>
+            <div class="about-feature-box">
+              <div style="color: var(--accent-blue);"><i data-lucide="git-merge" style="width: 24px; height: 24px;"></i></div>
+              <div>
+                <h4>C-Parts Consolidation</h4>
+                <p>Single-source supply chain for gears, shafts, sprockets, and fasteners.</p>
+              </div>
+            </div>
+            <div class="about-feature-box">
+              <div style="color: var(--accent-blue);"><i data-lucide="globe" style="width: 24px; height: 24px;"></i></div>
+              <div>
+                <h4>Global Exports</h4>
+                <p>VCI corrosion barrier packaging for Sweden, Denmark, and Germany.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Founder Showcase in About Us -->
+        <div class="founder-corporate-card" style="padding: 2.5rem; grid-template-columns: 1fr; gap: 1.75rem;">
+          <div class="founder-frame" style="max-width: 280px; margin: 0 auto;">
+           <img src="assets/founder.jpeg"
+     alt="Mr. Ganesh A. Dange - Founder & Managing Director, Yash Industry"
+     class="founder-img">
+            <div class="founder-badge-pill">
+              <span class="badge-years-lg">40+</span>
+              <span class="badge-text-sm">Years Leadership</span>
+            </div>
+          </div>
+
+          <div style="text-align: center;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--primary);">Mr. Yashwant R. Patil</h3>
+            <p style="font-size: 0.82rem; font-weight: 700; color: var(--accent-blue); letter-spacing: 1px; margin-bottom: 1rem;">FOUNDER &amp; MANAGING DIRECTOR</p>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+              "In high-precision manufacturing, there is no room for compromise. A single micron of deviation on our shop floor compounds into costly hours of downtime on our customer's assembly line. Our promise is absolute metallurgy integrity, repeatability, and unyielding reliability from print to delivery."
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1rem;">
+              <span class="top-iso-badge" style="font-size: 0.8rem; padding: 0.3rem 0.8rem;">Estd. 1981</span>
+              <span class="top-iso-badge" style="font-size: 0.8rem; padding: 0.3rem 0.8rem;">1,200+ Toolings</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Vision & Mission -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 4.5rem;">
+        <div class="corporate-card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div class="why-icon" style="margin-bottom: 0;"><i data-lucide="compass" style="width: 22px; height: 22px;"></i></div>
+            <h3 class="corporate-card-title" style="margin-bottom: 0;">Our Corporate Vision</h3>
+          </div>
+          <p class="corporate-card-desc">
+            To be recognized globally as the premier Indian benchmark for sub-micron precision manufacturing, innovative power transmission components, and reliable, ethical engineering partnership.
+          </p>
+        </div>
+
+        <div class="corporate-card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div class="why-icon" style="margin-bottom: 0;"><i data-lucide="target" style="width: 22px; height: 22px;"></i></div>
+            <h3 class="corporate-card-title" style="margin-bottom: 0;">Our Manufacturing Mission</h3>
+          </div>
+          <p class="corporate-card-desc">
+            Continuous investment in state-of-the-art 5-axis CNC technology, zero-defect quality processes, environmentally sustainable operations, and world-class mechanical craftsmanship.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 3: ⚙️ CAPABILITIES (DETAILED PRODUCTION SPECS)
+       ========================================================================= -->
+  <div class="page-view" id="page-capabilities">
+    <div class="page-hero-banner">
+      <div class="container">
+        <div class="breadcrumb-bar"><a data-tab="home">Home</a> / <span>Capabilities</span></div>
+        <h1 class="page-banner-title">MANUFACTURING <span class="glow">CAPABILITIES</span></h1>
+        <p class="page-banner-sub">Multi-axis CNC turning, 5-axis synchronous VMC milling, gear hobbing, cylindrical grinding, and heavy fabrication.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="capabilities-grid-clean" style="margin-bottom: 4.5rem;">
+        
+        <div class="capability-card-clean">
+          <div class="cap-icon-box"><i data-lucide="disc" style="width: 28px; height: 28px;"></i></div>
+          <h3 class="cap-title">CNC Turning &amp; Swiss Screw</h3>
+          <p class="cap-desc">High-speed precision turning on twin-spindle CNC lathes with driven live tooling for simultaneous C-axis milling and cross-drilling in one setup.</p>
+          <ul class="cap-specs-list">
+            <li><i data-lucide="check"></i> <strong>Capacity:</strong> Ø3 mm to Ø250 mm x 750 mm length</li>
+            <li><i data-lucide="check"></i> <strong>Spindle Speed:</strong> Up to 6,000 RPM</li>
+            <li><i data-lucide="check"></i> <strong>Accuracy:</strong> Runout &lt; 0.003 mm, Concentricity &lt; 0.002 mm</li>
+            <li><i data-lucide="check"></i> <strong>Automation:</strong> 3-meter automatic magazine bar feeder</li>
+          </ul>
+        </div>
+
+        <div class="capability-card-clean">
+          <div class="cap-icon-box"><i data-lucide="box" style="width: 28px; height: 28px;"></i></div>
+          <h3 class="cap-title">4 &amp; 5-Axis VMC Milling</h3>
+          <p class="cap-desc">Simultaneous multi-axis prismatic machining of complex hydraulic fluid manifolds, pump housings, aerospace brackets, and intricate contours.</p>
+          <ul class="cap-specs-list">
+            <li><i data-lucide="check"></i> <strong>Working Envelope:</strong> 850 x 510 x 510 mm travel</li>
+            <li><i data-lucide="check"></i> <strong>Spindle:</strong> 15,000 RPM direct-drive with cooling</li>
+            <li><i data-lucide="check"></i> <strong>Inspection:</strong> Renishaw OMP60 optical tool probes</li>
+            <li><i data-lucide="check"></i> <strong>Tolerances:</strong> True position within 0.008 mm</li>
+          </ul>
+        </div>
+
+        <div class="capability-card-clean">
+          <div class="cap-icon-box"><i data-lucide="settings" style="width: 28px; height: 28px;"></i></div>
+          <h3 class="cap-title">Gear Hobbing &amp; Broaching</h3>
+          <p class="cap-desc">Precision gear cutting, spline broaching, and CNC tooth flank grinding for spur gears, helical gears, pinions, and internal splines.</p>
+          <ul class="cap-specs-list">
+            <li><i data-lucide="check"></i> <strong>Module Range:</strong> Module 1.0 to 12.0 (Up to Ø800 mm)</li>
+            <li><i data-lucide="check"></i> <strong>Accuracy Standard:</strong> DIN 3962 Class 6 / AGMA 12</li>
+            <li><i data-lucide="check"></i> <strong>Heat Treatment:</strong> Case hardening (58-62 HRC)</li>
+            <li><i data-lucide="check"></i> <strong>Spline Standards:</strong> DIN 5480, DIN 5482, ANSI B92.1</li>
+          </ul>
+        </div>
+
+        <div class="capability-card-clean">
+          <div class="cap-icon-box"><i data-lucide="cylinder" style="width: 28px; height: 28px;"></i></div>
+          <h3 class="cap-title">Rollers &amp; Shaft Systems</h3>
+          <p class="cap-desc">Custom engineered industrial rollers for packaging, steel mills, automated sorters, and high-speed material handling conveyor systems.</p>
+          <ul class="cap-specs-list">
+            <li><i data-lucide="check"></i> <strong>Dimensions:</strong> Ø50 mm to Ø400 mm (Length to 3.5m)</li>
+            <li><i data-lucide="check"></i> <strong>Balancing:</strong> ISO 1940 Grade G2.5 dynamic balancing</li>
+            <li><i data-lucide="check"></i> <strong>Surface Coating:</strong> Hard chrome, black oxide, rubber lagging</li>
+            <li><i data-lucide="check"></i> <strong>Bearing Journals:</strong> Ground for 6200/6300 series bearings</li>
+          </ul>
+        </div>
+
+        <div class="capability-card-clean">
+          <div class="cap-icon-box"><i data-lucide="sliders" style="width: 28px; height: 28px;"></i></div>
+          <h3 class="cap-title">Cylindrical &amp; Surface Grinding</h3>
+          <p class="cap-desc">Sub-micron finish grinding for bearing journals, guide shafts, and precision spacers requiring mirror surface roughness.</p>
+          <ul class="cap-specs-list">
+            <li><i data-lucide="check"></i> <strong>Surface Finish:</strong> Ra 0.2 µm mirror finish</li>
+            <li><i data-lucide="check"></i> <strong>Types:</strong> CNC Centerless, Cylindrical, Surface</li>
+            <li><i data-lucide="check"></i> <strong>Parallelism:</strong> Within 0.002 mm across 500 mm</li>
+            <li><i data-lucide="check"></i> <strong>Roundness:</strong> Total Indicator Reading &lt; 0.0015 mm</li>
+          </ul>
+        </div>
+
+        <div class="capability-card-clean">
+          <div class="cap-icon-box"><i data-lucide="git-pull-request" style="width: 28px; height: 28px;"></i></div>
+          <h3 class="cap-title">Thread Rolling &amp; Whirling</h3>
+          <p class="cap-desc">Cold-forming hydraulic thread rolling for lead screws, acme threads, and high-tensile fasteners, creating unbroken grain flow for fatigue resistance.</p>
+          <ul class="cap-specs-list">
+            <li><i data-lucide="check"></i> <strong>Thread Types:</strong> Trapezoidal Tr &amp; Acme (Tr 10x2 to 100x12)</li>
+            <li><i data-lucide="check"></i> <strong>Force Capacity:</strong> 30-Ton hydraulic rolling force</li>
+            <li><i data-lucide="check"></i> <strong>Straightness:</strong> 0.05 mm runout per meter maximum</li>
+            <li><i data-lucide="check"></i> <strong>Mating Nuts:</strong> High-grade Phosphor Bronze RG7 / PB1</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 4: 🏭 INFRASTRUCTURE (MACHINERY & CAPACITY)
+       ========================================================================= -->
+  <div class="page-view" id="page-infrastructure">
+    <div class="page-hero-banner">
+      <div class="container">
+        <div class="breadcrumb-bar"><a data-tab="home">Home</a> / <span>Infrastructure</span></div>
+        <h1 class="page-banner-title">PLANT INFRASTRUCTURE &amp; <span class="glow">CAPACITY</span></h1>
+        <p class="page-banner-sub">25,000 sq. ft. modern manufacturing facility operating 24/7 in Pune to ensure high-tonnage batch consistency.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="table-responsive-wrapper">
+        <table class="modern-fleet-table">
+          <thead>
+            <tr>
+              <th>Machine Category</th>
+              <th>Make &amp; CNC Controller</th>
+              <th>Working Bed Envelope</th>
+              <th>Spindle / Accuracy</th>
+              <th>Total Fleet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="machine-name-col">5-Axis Synchronous VMC</td>
+              <td>Fanuc 31i-B5 / Heidenhain</td>
+              <td>850 x 510 x 510 mm</td>
+              <td>15,000 RPM (±0.003 mm)</td>
+              <td><strong>4 Units</strong></td>
+            </tr>
+            <tr>
+              <td class="machine-name-col">Twin-Spindle CNC Turning</td>
+              <td>Siemens 840D / Fanuc 0i-TF</td>
+              <td>Ø 250 mm x 750 mm</td>
+              <td>6,000 RPM Driven Tooling</td>
+              <td><strong>8 Units</strong></td>
+            </tr>
+            <tr>
+              <td class="machine-name-col">Swiss-Type Micro Turning</td>
+              <td>Citizen Cincom 7-Axis</td>
+              <td>Ø 0.8 mm to Ø 32 mm</td>
+              <td>10,000 RPM (±0.0015 mm)</td>
+              <td><strong>5 Units</strong></td>
+            </tr>
+            <tr>
+              <td class="machine-name-col">Gear Hobbing &amp; Shapers</td>
+              <td>Liebherr / Lorenz CNC</td>
+              <td>Up to Ø 800 mm (Mod 12)</td>
+              <td>DIN Class 6 Flank Ground</td>
+              <td><strong>6 Units</strong></td>
+            </tr>
+            <tr>
+              <td class="machine-name-col">Cylindrical &amp; Centerless Grinding</td>
+              <td>Studer / Micromatic CNC</td>
+              <td>Ø 200 mm x 1000 mm</td>
+              <td>Ra 0.2 µm Mirror Finish</td>
+              <td><strong>4 Units</strong></td>
+            </tr>
+            <tr>
+              <td class="machine-name-col">Hydraulic Thread Rolling</td>
+              <td>Two-Roll 30-Ton Hydraulic</td>
+              <td>M3 to M48 Profiles</td>
+              <td>Unbroken Grain Flow</td>
+              <td><strong>3 Units</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 4.5rem;">
+        <div class="corporate-card" style="text-align: center;">
+          <div style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; color: var(--accent-blue);">250K+</div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-top: 0.5rem;">Monthly Precision Units</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">High-volume zero-defect serial batches</p>
+        </div>
+        <div class="corporate-card" style="text-align: center;">
+          <div style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; color: var(--accent-blue);">99.4%</div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-top: 0.5rem;">Overall Equipment Effectiveness</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Predictive maintenance &amp; tool monitoring</p>
+        </div>
+        <div class="corporate-card" style="text-align: center;">
+          <div style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; color: var(--accent-blue);">24 / 7</div>
+          <div style="font-weight: 700; color: var(--text-primary); margin-top: 0.5rem;">3-Shift Active Operation</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Continuous production for rapid lead times</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 5: 📤 REQUEST A QUOTE (DEDICATED FULL-PAGE ENGINEERING RFQ)
+       ========================================================================= -->
+  <div class="page-view" id="page-rfq">
+    <div class="page-hero-banner">
+      <div class="container">
+        <div class="breadcrumb-bar"><a data-tab="home">Home</a> / <span>Request a Quote</span></div>
+        <h1 class="page-banner-title">REQUEST AN <span class="glow">ENGINEERING QUOTE</span></h1>
+        <p class="page-banner-sub">Submit your technical specifications, 2D/3D CAD drawings, and batch requirements for an official Design-for-Manufacturability (DFM) assessment and formal quotation within 24 hours.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="rfq-corporate-layout">
+        
+        <!-- Left: Dedicated 10-Field RFQ Form -->
+        <div class="rfq-form-card">
+          <div class="rfq-form-header">
+            <h3>Project Specifications &amp; CAD Submission</h3>
+            <p>Please enter your exact component requirements. All transmissions and CAD models are strictly protected under mutual NDA.</p>
+          </div>
+
+          <form id="dedicated-rfq-form">
+            
+            <!-- Section 1: Contact Information -->
+            <div style="margin-bottom: 1rem; font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.5px;">
+              01. Client &amp; Organization Details
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="rfq-name"><i data-lucide="user" style="width: 14px; height: 14px;"></i> Full Name <span class="req">*</span></label>
+                <input type="text" id="rfq-name" name="name" required placeholder="e.g. Rajesh Sharma" class="modern-input">
+              </div>
+
+              <div class="form-group">
+                <label for="rfq-company"><i data-lucide="building-2" style="width: 14px; height: 14px;"></i> Company Name <span class="req">*</span></label>
+                <input type="text" id="rfq-company" name="company" required placeholder="e.g. Apex Precision Systems Pvt Ltd" class="modern-input">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="rfq-phone"><i data-lucide="phone" style="width: 14px; height: 14px;"></i> Phone / WhatsApp <span class="req">*</span></label>
+                <input type="tel" id="rfq-phone" name="phone" required placeholder="+91 98814 08460" class="modern-input">
+              </div>
+
+              <div class="form-group">
+                <label for="rfq-email"><i data-lucide="mail" style="width: 14px; height: 14px;"></i> Business Email <span class="req">*</span></label>
+                <input type="email" id="rfq-email" name="email" required placeholder="r.sharma@apexprecision.com" class="modern-input">
+              </div>
+            </div>
+
+            <!-- Section 2: Component Specifications -->
+            <div style="margin-top: 2rem; margin-bottom: 1rem; font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.5px;">
+              02. Technical Component Parameters
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="rfq-component"><i data-lucide="cog" style="width: 14px; height: 14px;"></i> Component Name / Part Number <span class="req">*</span></label>
+                <input type="text" id="rfq-component" name="component" required placeholder="e.g. Conveyor Roller / Spur Gear / Shaft" class="modern-input">
+              </div>
+
+              <div class="form-group">
+                <label for="rfq-material"><i data-lucide="layers" style="width: 14px; height: 14px;"></i> Material Grade <span class="req">*</span></label>
+                <select id="rfq-material" name="material" required class="modern-select">
+                  <option value="" disabled selected>Select Material Specification</option>
+                  <option value="Stainless Steel (SS 304 / SS 316L)">Stainless Steel (SS 304 / SS 316L)</option>
+                  <option value="Alloy Steel (EN24 / 4140 / 4340)">Alloy Steel (EN24 / 4140 / 4340)</option>
+                  <option value="Carbon Steel (C45 / EN8 / EN9)">Carbon Steel (C45 / EN8 / EN9)</option>
+                  <option value="Case Hardening Steel (20MnCr5 / 8620)">Case Hardening Steel (20MnCr5 / 8620)</option>
+                  <option value="Aerospace Aluminum (6061-T6 / 7075-T6)">Aerospace Aluminum (6061-T6 / 7075-T6)</option>
+                  <option value="Phosphor Bronze / Brass (CuSn8 / IS 319)">Phosphor Bronze / Brass (CuSn8 / IS 319)</option>
+                  <option value="Tool Steel (D2 / D3 / H13 / M2)">Tool Steel (D2 / D3 / H13 / M2)</option>
+                  <option value="Cast Iron (FG 260 / SGI 500/7)">Cast Iron (FG 260 / SGI 500/7)</option>
+                  <option value="Custom / Other (Specified in Notes)">Custom / Other (Specified in Notes)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="rfq-quantity"><i data-lucide="hash" style="width: 14px; height: 14px;"></i> Quantity (Units / Batch) <span class="req">*</span></label>
+                <input type="number" id="rfq-quantity" name="quantity" min="1" required placeholder="e.g. 500" class="modern-input">
+              </div>
+
+              <div class="form-group">
+                <label for="rfq-delivery-date"><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> Required Delivery Date <span class="req">*</span></label>
+                <input type="date" id="rfq-delivery-date" name="delivery_date" required class="modern-input">
+              </div>
+            </div>
+
+            <!-- Section 3: Engineering Drawing & Requirements -->
+            <div style="margin-top: 2rem; margin-bottom: 1rem; font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.5px;">
+              03. CAD Drawing &amp; Additional Requirements
+            </div>
+
+            <!-- Drawing Upload Dropzone -->
+            <div class="form-group full-width">
+              <label><i data-lucide="file-up" style="width: 14px; height: 14px;"></i> 2D / 3D CAD Blueprint Upload</label>
+              <div class="file-dropzone-box" id="rfq-dropzone">
+                <input type="file" id="rfq-drawing-file" accept=".step,.stp,.iges,.igs,.dwg,.dxf,.pdf,.zip,.rar" class="file-input-native">
+                <div class="dropzone-prompt" id="dropzone-prompt">
+                  <i data-lucide="upload-cloud" style="width: 36px; height: 36px; color: var(--accent-blue); margin: 0 auto;"></i>
+                  <div class="drop-primary-txt">Drag and drop your CAD drawing here, or <span class="highlight-browse">Browse Computer</span></div>
+                  <div class="drop-sub-txt">Accepts .STEP, .STP, .IGES, .DWG, .DXF, .PDF, or .ZIP (Up to 25MB)</div>
+                </div>
+                <div class="file-chosen-tag" id="file-chosen-tag" style="display: none;">
+                  <i data-lucide="check-circle" style="width: 18px; height: 18px;"></i>
+                  <span id="filename-label">drawing.step</span>
+                  <button type="button" id="btn-remove-attachment" style="background: none; border: none; font-size: 1.1rem; cursor: pointer; color: inherit;">&times;</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Requirements -->
+            <div class="form-group full-width">
+              <label for="rfq-requirements"><i data-lucide="clipboard-list" style="width: 14px; height: 14px;"></i> Additional Technical Requirements / Surface Treatment / Tolerances</label>
+              <textarea id="rfq-requirements" name="requirements" rows="4" class="modern-textarea" placeholder="Detail any surface coating (Black oxide, Hard chrome, Zinc), heat treatment (Induction hardening, Nitriding, 58-62 HRC), critical GD&amp;T tolerances (e.g. ±0.005mm), CMM inspection reports, or packaging instructions..."></textarea>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="rfq-action-buttons">
+              <button type="button" class="btn-rfq-whatsapp" id="btn-rfq-submit-whatsapp">
+                <i data-lucide="send" style="width: 18px; height: 18px;"></i>
+                <span>Submit &amp; Open WhatsApp Ticket</span>
+              </button>
+
+              <button type="button" class="btn-rfq-email" id="btn-rfq-submit-email">
+                <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
+                <span>Submit via Official Email</span>
+              </button>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.82rem; color: var(--text-muted);">
+              <i data-lucide="lock" style="width: 14px; height: 14px; color: var(--accent-blue);"></i>
+              <span>All submitted files and technical data are protected under mutual confidentiality and stored securely.</span>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Right: Engineering Assurance Sidebar -->
+        <div class="rfq-sidebar-card">
+          <h4>Engineering SLA &amp; Assurance</h4>
+          
+          <ul class="rfq-perks-list">
+            <li class="perk-item">
+              <div class="perk-icon"><i data-lucide="clock" style="width: 18px; height: 18px;"></i></div>
+              <div>
+                <div class="perk-title">24-Hour DFM Turnaround</div>
+                <div class="perk-desc">Fast manufacturability review, tooling analysis, and formal estimate delivered within 1 business day.</div>
+              </div>
+            </li>
+
+            <li class="perk-item">
+              <div class="perk-icon"><i data-lucide="shield-check" style="width: 18px; height: 18px;"></i></div>
+              <div>
+                <div class="perk-title">Confidentiality &amp; NDA</div>
+                <div class="perk-desc">Bilateral non-disclosure protection. Your designs remain 100% your proprietary IP.</div>
+              </div>
+            </li>
+
+            <li class="perk-item">
+              <div class="perk-icon"><i data-lucide="crosshair" style="width: 18px; height: 18px;"></i></div>
+              <div>
+                <div class="perk-title">Sub-Micron Metrology</div>
+                <div class="perk-desc">Complete CMM dimensional report &amp; EN 10204 3.1 mill certificate provided with batches.</div>
+              </div>
+            </li>
+
+            <li class="perk-item">
+              <div class="perk-icon"><i data-lucide="package-check" style="width: 18px; height: 18px;"></i></div>
+              <div>
+                <div class="perk-title">Export Packaging</div>
+                <div class="perk-desc">VCI corrosion barrier wrapping, custom wooden crates, and reliable logistics to Europe, USA, and India.</div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="direct-call-box">
+            <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Direct Engineering Desk:</div>
+            <a href="tel:+919881408460" class="direct-phone">+91 98814 08460</a>
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">quote@yashindustries.com</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 6: 🤝 CUSTOMERS (GLOBAL OEM BASE)
+       ========================================================================= -->
+  <div class="page-view" id="page-customers">
+    <div class="page-hero-banner">
+      <div class="container">
+        <div class="breadcrumb-bar"><a data-tab="home">Home</a> / <span>Customers</span></div>
+        <h1 class="page-banner-title">OUR GLOBAL <span class="glow">CUSTOMER BASE</span></h1>
+        <p class="page-banner-sub">Trusted Tier-1 supplier to major engineering conglomerates, transmission builders, and machinery OEMs worldwide.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="cards-grid-3">
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="globe" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">Nordic Drives AB</h3>
+          <p style="font-size: 0.82rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.75rem;">Gothenburg, Sweden • Industrial Machinery</p>
+          <p class="corporate-card-desc">Supplier of precision stepped shafts, gearboxes, and induction-hardened sprockets for European automated logistics systems.</p>
+        </div>
+
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="wind" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">DanHydraulic AS</h3>
+          <p style="font-size: 0.82rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.75rem;">Aarhus, Denmark • Wind Energy Systems</p>
+          <p class="corporate-card-desc">Manufacturer of high-pressure hydraulic valve manifolds and pitch control lead screws for offshore wind turbines.</p>
+        </div>
+
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="settings" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">Bavaria Gear GMBH</h3>
+          <p style="font-size: 0.82rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.75rem;">Munich, Germany • Heavy Transmission</p>
+          <p class="corporate-card-desc">Contract manufacturing of DIN Class 6 flank-ground spur and helical gears for automotive test benches and heavy machinery.</p>
+        </div>
+
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="shield" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">Bharat Heavy Systems</h3>
+          <p style="font-size: 0.82rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.75rem;">Pune &amp; Mumbai, India • Power &amp; Defense</p>
+          <p class="corporate-card-desc">Precision turned transmission pins, high-tensile socket fasteners, and drive rollers for national infrastructure projects.</p>
+        </div>
+
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="truck" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">EuroConvey Line B.V.</h3>
+          <p style="font-size: 0.82rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.75rem;">Rotterdam, Netherlands • Material Handling</p>
+          <p class="corporate-card-desc">High-volume supplier of dynamically balanced conveyor drive rollers and induction hardened sprockets.</p>
+        </div>
+
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="factory" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">Apex Automation Solutions</h3>
+          <p style="font-size: 0.82rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.75rem;">Bangalore, India • Robotics &amp; Assembly</p>
+          <p class="corporate-card-desc">Precision Swiss-turned micro components and 5-axis milled end-of-arm tooling components with ±0.002 mm tolerance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 7: 📸 GALLERY (FACILITY & PRODUCTS)
+       ========================================================================= -->
+  <div class="page-view" id="page-gallery">
+    <div class="page-hero-banner">
+      <div class="container">
+        <div class="breadcrumb-bar"><a data-tab="home">Home</a> / <span>Gallery</span></div>
+        <h1 class="page-banner-title">FACILITY &amp; <span class="glow">PRODUCT GALLERY</span></h1>
+        <p class="page-banner-sub">Visual showcase of our production bays, high-speed CNC machinery, and finished precision components.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div style="display: flex; gap: 0.75rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
+        <button type="button" class="btn-outline-corporate gallery-filter-btn active" data-gallery-filter="all" style="color: var(--primary); border-color: var(--border-medium); padding: 0.5rem 1.25rem;">All Photos</button>
+        <button type="button" class="btn-outline-corporate gallery-filter-btn" data-gallery-filter="machines" style="color: var(--primary); border-color: var(--border-medium); padding: 0.5rem 1.25rem;">Machines</button>
+        <button type="button" class="btn-outline-corporate gallery-filter-btn" data-gallery-filter="products" style="color: var(--primary); border-color: var(--border-medium); padding: 0.5rem 1.25rem;">Products</button>
+      </div>
+
+      <div class="cards-grid-3">
+        <div class="corporate-card gallery-item" data-gallery-cat="machines">
+          <div style="height: 180px; background: var(--bg-subtle); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: var(--accent-blue);">
+            <i data-lucide="cpu" style="width: 54px; height: 54px;"></i>
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase;">Machinery Bay 01</span>
+          <h3 class="corporate-card-title gallery-title" style="margin-top: 0.25rem;">5-Axis Synchronous VMC Center</h3>
+          <p class="corporate-card-desc">High-precision 15,000 RPM spindle machining center for complex fluid manifolds.</p>
+        </div>
+
+        <div class="corporate-card gallery-item" data-gallery-cat="products">
+          <div style="height: 180px; background: var(--bg-subtle); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: var(--accent-blue);">
+            <i data-lucide="settings" style="width: 54px; height: 54px;"></i>
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase;">Finished Transmission</span>
+          <h3 class="corporate-card-title gallery-title" style="margin-top: 0.25rem;">Precision Ground Helical Gears</h3>
+          <p class="corporate-card-desc">Flank ground to DIN Class 6 standards with case hardened 58-62 HRC core.</p>
+        </div>
+
+        <div class="corporate-card gallery-item" data-gallery-cat="machines">
+          <div style="height: 180px; background: var(--bg-subtle); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: var(--accent-blue);">
+            <i data-lucide="crosshair" style="width: 54px; height: 54px;"></i>
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase;">Grinding &amp; Micro-Finishing</span>
+          <h3 class="corporate-card-title gallery-title" style="margin-top: 0.25rem;">CNC Cylindrical &amp; Centerless Grinding</h3>
+          <p class="corporate-card-desc">Sub-micron cylindrical finishing down to Ra 0.2 µm surface roughness for bearing journals.</p>
+        </div>
+
+        <div class="corporate-card gallery-item" data-gallery-cat="products">
+          <div style="height: 180px; background: var(--bg-subtle); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: var(--accent-blue);">
+            <i data-lucide="cylinder" style="width: 54px; height: 54px;"></i>
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase;">Material Handling</span>
+          <h3 class="corporate-card-title gallery-title" style="margin-top: 0.25rem;">Heavy-Duty Conveyor Drive Rollers</h3>
+          <p class="corporate-card-desc">Dynamically balanced to ISO 1940 Grade G2.5 for high-speed sortation conveyors.</p>
+        </div>
+
+        <div class="corporate-card gallery-item" data-gallery-cat="machines">
+          <div style="height: 180px; background: var(--bg-subtle); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: var(--accent-blue);">
+            <i data-lucide="disc" style="width: 54px; height: 54px;"></i>
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase;">Turning Cell</span>
+          <h3 class="corporate-card-title gallery-title" style="margin-top: 0.25rem;">Twin-Spindle CNC Turning Cell</h3>
+          <p class="corporate-card-desc">Automated bar-fed multi-axis lathe with live driven tooling for continuous runs.</p>
+        </div>
+
+        <div class="corporate-card gallery-item" data-gallery-cat="products">
+          <div style="height: 180px; background: var(--bg-subtle); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: var(--accent-blue);">
+            <i data-lucide="git-pull-request" style="width: 54px; height: 54px;"></i>
+          </div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase;">Linear Actuation</span>
+          <h3 class="corporate-card-title gallery-title" style="margin-top: 0.25rem;">Precision Trapezoidal Lead Screws</h3>
+          <p class="corporate-card-desc">Hydraulic thread rolled Tr 40x7 screws with matched bronze nuts for press actuators.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 8: 📄 DOWNLOADS CENTER
+       ========================================================================= -->
+  <div class="page-view" id="page-downloads">
+    <div class="page-hero-banner">
+      <div class="container">
+        <div class="breadcrumb-bar"><a data-tab="home">Home</a> / <span>Downloads</span></div>
+        <h1 class="page-banner-title">DOCUMENTATION &amp; <span class="glow">DOWNLOADS</span></h1>
+        <p class="page-banner-sub">Download our verified corporate credentials, machinery lists, quality manuals, and comprehensive product catalogs.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="cards-grid-3">
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="file-text" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">Corporate Profile &amp; Overview</h3>
+          <p class="corporate-card-desc">Comprehensive company profile detailing our history since 1981, engineering capabilities, export markets, and management team.</p>
+          <button type="button" class="btn-download-clean btn-download-action" data-doc-name="Yash Industry Corporate Profile">
+            <i data-lucide="download" style="width: 15px; height: 15px;"></i> Download Profile (PDF)
+          </button>
+        </div>
+
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="cpu" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">Machine Fleet &amp; Capacity Matrix</h3>
+          <p class="corporate-card-desc">Technical specification sheet of our CNC, VMC, Grinding, and Thread Rolling machinery with working envelopes and tolerances.</p>
+          <button type="button" class="btn-download-clean btn-download-action" data-doc-name="Machine Fleet and Capacity Matrix">
+            <i data-lucide="download" style="width: 15px; height: 15px;"></i> Download Matrix (PDF)
+          </button>
+        </div>
+
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="award" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">ISO 9001:2015 Certificate</h3>
+          <p class="corporate-card-desc">Official accredited quality management system certificate validating our precision manufacturing and metrology processes.</p>
+          <button type="button" class="btn-download-clean btn-download-action" data-doc-name="ISO 9001:2015 Quality Certificate">
+            <i data-lucide="download" style="width: 15px; height: 15px;"></i> Download Certificate (PDF)
+          </button>
+        </div>
+
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="book-open" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">Transmission Products Catalog</h3>
+          <p class="corporate-card-desc">Complete dimensional tables for industrial rollers, sprockets, spur/helical gears, pinions, and lead screws.</p>
+          <button type="button" class="btn-download-clean btn-download-action" data-doc-name="Full Transmission Products Catalog">
+            <i data-lucide="download" style="width: 15px; height: 15px;"></i> Download Catalog (PDF)
+          </button>
+        </div>
+
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="shield-check" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">Quality Manual &amp; Metrology Plan</h3>
+          <p class="corporate-card-desc">Detailed inspection protocols, calibrated instrument logs, and sample EN 10204 3.1 inspection report templates.</p>
+          <button type="button" class="btn-download-clean btn-download-action" data-doc-name="Quality Manual &amp; Metrology Plan">
+            <i data-lucide="download" style="width: 15px; height: 15px;"></i> Download QA Manual (PDF)
+          </button>
+        </div>
+
+        <div class="corporate-card">
+          <div class="why-icon"><i data-lucide="layers" style="width: 24px; height: 24px;"></i></div>
+          <h3 class="corporate-card-title">Material Standards &amp; Heat Treatment</h3>
+          <p class="corporate-card-desc">Comparative alloy composition charts, hardening specifications (HRC/BHN), and European EN material cross-references.</p>
+          <button type="button" class="btn-download-clean btn-download-action" data-doc-name="Material Standards and Metallurgy Guide">
+            <i data-lucide="download" style="width: 15px; height: 15px;"></i> Download Guide (PDF)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 9: 📞 CONTACT US (OFFICE, WORKS, MAP & INQUIRY FORM)
+       ========================================================================= -->
+  <div class="page-view" id="page-contact">
+    <div class="page-hero-banner">
+      <div class="container">
+        <div class="breadcrumb-bar"><a data-tab="home">Home</a> / <span>Contact Us</span></div>
+        <h1 class="page-banner-title">OFFICE, WORKS &amp; <span class="glow">CONTACT DESK</span></h1>
+        <p class="page-banner-sub">Visit our manufacturing works in Pune or send your technical inquiry directly to our engineering desk.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3.5rem;">
+        <div class="corporate-card">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div class="contact-icon-box"><i data-lucide="factory" style="width: 22px; height: 22px;"></i></div>
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">Manufacturing Works / Plant</h3>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+                Sr. No. 37/1/1, Narhe Industrial Estate, Near Pari Towers,<br>
+                Ambegaon BK, Pune – 411041, Maharashtra, India
+              </p>
+              <div style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--accent-blue); font-weight: 600;">
+                <i data-lucide="clock" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle;"></i>
+                Operational: 24/7 (3 Continuous Shifts)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="corporate-card">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div class="contact-icon-box"><i data-lucide="building-2" style="width: 22px; height: 22px;"></i></div>
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">Administrative &amp; Sales Desk</h3>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+                Unit 4B, Industrial Towers, Pune-Bangalore Highway,<br>
+                Pune – 411041, Maharashtra, India
+              </p>
+              <div style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--accent-blue); font-weight: 600;">
+                <i data-lucide="phone" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle;"></i>
+                Direct Desk: +91 98814 08460 / 020-24690143
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-corporate-grid">
+        <!-- Google Map Embed -->
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-light); height: 450px; box-shadow: var(--shadow-sm);">
+          <iframe 
+            src="https://maps.google.com/maps?q=Narhe%20Industrial%20Estate,%20Ambegaon%20BK,%20Pune&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+            style="width: 100%; height: 100%; border: 0;"
+            loading="lazy" 
+            title="Yash Industry Plant Location Map">
+          </iframe>
+        </div>
+
+        <!-- Contact Form Card -->
+        <div class="contact-card-info">
+          <h3 style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">Send Direct Message</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Our sales engineering team will respond within 24 hours.</p>
+
+          <form id="contact-inquiry-form">
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label for="contact-name">Full Name *</label>
+              <input type="text" id="contact-name" class="modern-input" placeholder="e.g. Rajesh Sharma" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label for="contact-company">Company / Organization *</label>
+              <input type="text" id="contact-company" class="modern-input" placeholder="e.g. Apex Precision Systems" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label for="contact-email">Business Email Address *</label>
+              <input type="email" id="contact-email" class="modern-input" placeholder="name@company.com" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label for="contact-message">Technical Inquiry / Requirements *</label>
+              <textarea id="contact-message" class="modern-textarea" placeholder="Describe component specifications, expected quantities, material requirements, or delivery timeline..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary-corporate" style="width: 100%; justify-content: center;">
+              <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+              <span>Send Message to Engineering Desk</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODERN CORPORATE FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <div>
+          <div class="footer-brand-title">
+            YASH <span>INDUSTRY</span>
+          </div>
+          <p class="footer-brand-desc">
+            Manufacturer and global exporter of high-precision CNC turned components, gears, sprockets, conveyor rollers, lead screws, and socket fasteners. ISO 9001:2015 Certified. Established 1981 in Pune, Maharashtra, India.
+          </p>
+          <div style="display: flex; gap: 0.75rem;">
+            <span class="top-iso-badge" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8; border-color: rgba(56, 189, 248, 0.4);">ISO 9001:2015</span>
+            <span class="top-iso-badge" style="background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.4);">40+ Years Heritage</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a data-tab="home">Home Portal</a></li>
+            <li><a data-tab="about">About Us &amp; Founder</a></li>
+            <li><a data-tab="capabilities">Machining Capabilities</a></li>
+            <li><a data-tab="infrastructure">Plant Infrastructure</a></li>
+            <li><a data-tab="rfq">Request a Quote (RFQ)</a></li>
+            <li><a data-tab="customers">Global Customer Base</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Capabilities</h4>
+          <ul class="footer-links-list">
+            <li><a data-tab="capabilities">CNC Turning &amp; Swiss Screw</a></li>
+            <li><a data-tab="capabilities">4 &amp; 5-Axis VMC Milling</a></li>
+            <li><a data-tab="capabilities">Gear Hobbing &amp; Broaching</a></li>
+            <li><a data-tab="capabilities">Conveyor &amp; Drive Rollers</a></li>
+            <li><a data-tab="capabilities">Hydraulic Thread Rolling</a></li>
+            <li><a data-tab="infrastructure">CMM Metrology Laboratory</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Plant Contact</h4>
+          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin-bottom: 1rem;">
+            Sr. No. 37/1/1, Narhe Industrial Estate, Near Pari Towers, Ambegaon BK, Pune – 411041, Maharashtra, India
+          </p>
+          <p style="font-size: 0.88rem; color: #ffffff; margin-bottom: 0.35rem;">
+            <strong>Phone:</strong> <a href="tel:+919881408460" style="color: #38bdf8;">+91 98814 08460</a>
+          </p>
+          <p style="font-size: 0.88rem; color: #ffffff;">
+            <strong>Email:</strong> <a href="mailto:quote@yashindustries.com" style="color: #38bdf8;">quote@yashindustries.com</a>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 Yash Industry. All Rights Reserved. Manufactured with pride in Pune, Maharashtra, India.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a data-tab="home">Privacy Policy</a>
+          <a data-tab="home">Terms of Supply</a>
+          <a data-tab="downloads">Quality &amp; Standards</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Quick Actions -->
+  <div class="floating-quick-bar">
+    <a href="https://wa.me/919881408460?text=Hello%20Yash%20Industry,%20I%20would%20like%20to%20request%20a%20quote%20for%20precision%20components." target="_blank" rel="noopener" class="fab-btn fab-whatsapp" aria-label="Chat on WhatsApp" title="Chat with Yash Industry on WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+    </a>
+
+    <!-- Floating Direct Email Button (Below WhatsApp) -->
+    <a href="mailto:quote@yashindustries.com?subject=Precision%20Machining%20Inquiry%20-%20Yash%20Industry" class="fab-btn fab-email" aria-label="Email Engineering Desk" title="Email Engineering Desk (quote@yashindustries.com)">
+      <i data-lucide="mail" style="width: 22px; height: 22px;"></i>
+    </a>
+
+    <button type="button" class="fab-btn fab-scroll-top" id="fab-scroll-top" aria-label="Scroll to top of page" title="Back to Top">
+      <i data-lucide="chevron-up" style="width: 22px; height: 22px;"></i>
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  </script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

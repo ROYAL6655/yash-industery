@@ -519,6 +519,7 @@
 
   // 6. Dedicated Engineering RFQ Engine (All 10 Fields)
   function initRfqCalculator() {
+    const rfqForm = document.getElementById('dedicated-rfq-form');
     const nameInput = document.getElementById('rfq-name');
     const companyInput = document.getElementById('rfq-company');
     const phoneInput = document.getElementById('rfq-phone');
@@ -704,34 +705,48 @@
       });
     }
 
-    // Submit via Official Email
-    if (btnSubmitEmail) {
-      btnSubmitEmail.addEventListener('click', (e) => {
-        e.preventDefault();
+    // Form Submit Handler (Handles both local file preview and live web server)
+    if (rfqForm) {
+      rfqForm.addEventListener('submit', (e) => {
         const data = validateForm();
-        if (!data) return;
+        if (!data) {
+          e.preventDefault();
+          return;
+        }
 
-        const emailSubject = encodeURIComponent(`RFQ: ${data.component} (${data.quantity} Pcs) - ${data.company}`);
-        const emailBody = encodeURIComponent(
-          `Dear Yash Industries Engineering Team,\n\n` +
-          `Please provide a formal quotation for the following production request:\n\n` +
-          `1. Client Name: ${data.name}\n` +
-          `2. Company: ${data.company}\n` +
-          `3. Phone: ${data.phone}\n` +
-          `4. Business Email: ${data.email}\n` +
-          `5. Component Name: ${data.component}\n` +
-          `6. Material Grade: ${data.material}\n` +
-          `7. Batch Quantity: ${data.quantity} Units\n` +
-          `8. Required Delivery Date: ${data.deliveryDate}\n` +
-          `9. Drawing Attachment: ${data.drawing}\n` +
-          `10. Additional Technical Requirements:\n${data.requirements}\n\n` +
-          `Thank you,\n${data.name}\n${data.company}`
-        );
+        // When opened locally via file://: FormSubmit blocks file://, so open Gmail directly with prefilled details
+        if (window.location.protocol === 'file:') {
+          e.preventDefault();
+          showToast('Local preview: Opening Gmail with pre-filled RFQ...');
 
-        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yashindustries018@gmail.com&su=${emailSubject}&body=${emailBody}`;
+          const emailSubject = encodeURIComponent(`RFQ: ${data.component} (${data.quantity} Pcs) - ${data.company}`);
+          const emailBody = encodeURIComponent(
+            `Dear Yash Industries Engineering Team,\n\n` +
+            `Please provide a formal quotation for the following production request:\n\n` +
+            `1. Client Name: ${data.name}\n` +
+            `2. Company: ${data.company}\n` +
+            `3. Phone: ${data.phone}\n` +
+            `4. Business Email: ${data.email}\n` +
+            `5. Component Name: ${data.component}\n` +
+            `6. Material Grade: ${data.material}\n` +
+            `7. Batch Quantity: ${data.quantity} Units\n` +
+            `8. Required Delivery Date: ${data.deliveryDate}\n` +
+            `9. Drawing Attachment: ${data.drawing}\n` +
+            `10. Additional Technical Requirements:\n${data.requirements}\n\n` +
+            `Thank you,\n${data.name}\n${data.company}`
+          );
 
-        showToast('Opening Gmail to send your quote request...');
-        setTimeout(() => { window.open(gmailUrl, '_blank'); }, 600);
+          const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yashindustries018@gmail.com&su=${emailSubject}&body=${emailBody}`;
+          setTimeout(() => { window.open(gmailUrl, '_blank'); }, 600);
+          return;
+        }
+
+        // On live web server (http: or https:): FormSubmit processes the form and file attachment
+        const nextInput = rfqForm.querySelector('input[name="_next"]');
+        if (nextInput && window.location.href.startsWith('http')) {
+          nextInput.value = window.location.href;
+        }
+        showToast('Submitting RFQ with drawing attachment to Yash Industries...');
       });
     }
   }

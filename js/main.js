@@ -775,13 +775,16 @@
   function initDownloadsManager() {
     document.querySelectorAll('.btn-download-action').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        e.preventDefault();
+        const href = btn.getAttribute('href');
         const docName = btn.getAttribute('data-doc-name') || 'Document';
-        showToast(`Downloading: ${docName} (PDF)...`);
 
-        setTimeout(() => {
-          showToast(`Successfully downloaded "${docName}"!`);
-        }, 1200);
+        if (href && href !== '#' && !href.startsWith('javascript:')) {
+          showToast(`Downloading: ${docName}...`);
+          return; // Allow native download
+        }
+
+        e.preventDefault();
+        showToast(`Document "${docName}" is being prepared. Contact engineering desk.`);
       });
     });
   }

@@ -1807,6 +1807,8 @@ button, input, select, textarea {
   padding: 0.65rem 1.25rem;
   border-radius: var(--radius-sm);
   transition: var(--transition);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .btn-download-clean:hover {

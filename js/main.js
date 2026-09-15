@@ -697,7 +697,7 @@
           `_Submitted via Yash Industries Official RFQ Desk_`;
 
         const encodedMsg = encodeURIComponent(waMessage);
-        const waUrl = `https://wa.me/911234567890?text=${encodedMsg}`;
+        const waUrl = `https://wa.me/919822050017?text=${encodedMsg}`;
 
         showToast('Generating official WhatsApp RFQ ticket...');
         setTimeout(() => window.open(waUrl, '_blank'), 600);
@@ -728,10 +728,10 @@
           `Thank you,\n${data.name}\n${data.company}`
         );
 
-        const mailtoUrl = `mailto:yashindustries018@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yashindustries018@gmail.com&su=${emailSubject}&body=${emailBody}`;
 
-        showToast('Opening official business email client...');
-        setTimeout(() => { window.location.href = mailtoUrl; }, 600);
+        showToast('Opening Gmail to send your quote request...');
+        setTimeout(() => { window.open(gmailUrl, '_blank'); }, 600);
       });
     }
   }
@@ -794,14 +794,24 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('contact-name')?.value.trim();
+      const email = document.getElementById('contact-email')?.value.trim();
       const company = document.getElementById('contact-company')?.value.trim();
       const msg = document.getElementById('contact-message')?.value.trim();
 
-      const text = `Inquiry from ${name} (${company}): ${msg}`;
-      const waUrl = `https://wa.me/911234567890?text=${encodeURIComponent(text)}`;
+      const subject = encodeURIComponent(`Inquiry from ${name}${company ? ' (' + company + ')' : ''} - Yash Industries`);
+      const body = encodeURIComponent(
+        `Dear Yash Industries Team,\n\n` +
+        `Name: ${name}\n` +
+        (email ? `Email: ${email}\n` : '') +
+        (company ? `Company: ${company}\n` : '') +
+        `\nMessage:\n${msg}\n\n` +
+        `Thank you.`
+      );
 
-      showToast('Thank you! Redirecting to Yash Industries Engineering Desk...');
-      setTimeout(() => window.open(waUrl, '_blank'), 700);
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yashindustries018@gmail.com&su=${subject}&body=${body}`;
+
+      showToast('Thank you! Opening Gmail to send your inquiry...');
+      setTimeout(() => window.open(gmailUrl, '_blank'), 700);
     });
   }
 

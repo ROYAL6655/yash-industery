@@ -714,7 +714,7 @@
       });
     }
 
-    // Form Submit Handler (Submits naturally and redirects to FormSubmit with PDF attachment)
+    // Form Submit Handler: Redirects to FormSubmit (with PDF upload) AND opens Gmail
     if (rfqForm) {
       rfqForm.addEventListener('submit', (e) => {
         const data = validateForm();
@@ -723,14 +723,30 @@
           return;
         }
 
-        // When opened locally as file:/// - FormSubmit security-blocks offline files
-        if (window.location.protocol === 'file:') {
-          e.preventDefault();
-          alert('⚠️ Offline File Notice:\n\nForm submissions and drawing uploads require a web server.\n\nRedirecting to your Live Website (https://royal6655.github.io/yash-industery/#rfq) where form submissions and PDF uploads work!');
-          window.location.href = 'https://royal6655.github.io/yash-industery/#rfq';
-          return;
-        }
+        // 1. Prepare Gmail compose URL with all quote fields
+        const emailSubject = encodeURIComponent(`RFQ: ${data.component} (${data.quantity} Pcs) - ${data.company}`);
+        const emailBody = encodeURIComponent(
+          `Dear Yash Industries Engineering Team,\n\n` +
+          `Please provide a formal quotation for the following production request:\n\n` +
+          `1. Client Name: ${data.name}\n` +
+          `2. Company: ${data.company}\n` +
+          `3. Phone: ${data.phone}\n` +
+          `4. Business Email: ${data.email}\n` +
+          `5. Component Name: ${data.component}\n` +
+          `6. Material Grade: ${data.material}\n` +
+          `7. Batch Quantity: ${data.quantity} Units\n` +
+          `8. Required Delivery Date: ${data.deliveryDate}\n` +
+          `9. Drawing Attachment: ${data.drawing}\n` +
+          `10. Additional Technical Requirements:\n${data.requirements}\n\n` +
+          `Thank you,\n${data.name}\n${data.company}`
+        );
 
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yashindustries018@gmail.com&su=${emailSubject}&body=${emailBody}`;
+
+        // 2. Open Gmail in a new tab with pre-filled details
+        window.open(gmailUrl, '_blank');
+
+        // 3. Update button UI
         const submitBtn = document.getElementById('btn-rfq-submit-email');
         if (submitBtn) {
           submitBtn.disabled = true;
@@ -740,12 +756,12 @@
               <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
               <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor"></path>
             </svg>
-            <span>Submitting RFQ &amp; Uploading Drawing...</span>
+            <span>Redirecting to FormSubmit &amp; Opening Gmail...</span>
           `;
         }
 
-        showToast('Submitting RFQ and uploading CAD drawing...');
-        // Native POST proceeds and redirects to FormSubmit, delivering the PDF to yashindustries018@gmail.com!
+        showToast('Opening Gmail and redirecting to FormSubmit...');
+        // Form naturally proceeds to POST to FormSubmit with the PDF drawing file!
       });
     }
   }

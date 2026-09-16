@@ -722,55 +722,22 @@
           return;
         }
 
-        // When opened locally via file://: Web browsers block auto-attaching local files to Gmail
+        // When opened locally via file:/// protocol: FormSubmit requires an HTTP/HTTPS web server
         if (window.location.protocol === 'file:') {
           e.preventDefault();
-
-          const emailSubject = encodeURIComponent(`RFQ: ${data.component} (${data.quantity} Pcs) - ${data.company}`);
-          const emailBody = encodeURIComponent(
-            `Dear Yash Industries Engineering Team,\n\n` +
-            `Please provide a formal quotation for the following production request:\n\n` +
-            `1. Client Name: ${data.name}\n` +
-            `2. Company: ${data.company}\n` +
-            `3. Phone: ${data.phone}\n` +
-            `4. Business Email: ${data.email}\n` +
-            `5. Component Name: ${data.component}\n` +
-            `6. Material Grade: ${data.material}\n` +
-            `7. Batch Quantity: ${data.quantity} Units\n` +
-            `8. Required Delivery Date: ${data.deliveryDate}\n` +
-            `9. Drawing Attachment: ${data.drawing}\n` +
-            `10. Additional Technical Requirements:\n${data.requirements}\n\n` +
-            `Thank you,\n${data.name}\n${data.company}`
-          );
-
-          const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yashindustries018@gmail.com&su=${emailSubject}&body=${emailBody}`;
-
-          if (uploadedFileName) {
-            const promptMsg = 
-              `📁 Selected File: "${uploadedFileName}"\n\n` +
-              `NOTE: Web browsers (Chrome, Edge) strictly forbid websites from automatically attaching local files into Gmail drafts.\n\n` +
-              `To test REAL automatic file upload & delivery:\n` +
-              `👉 Test on your live website: https://royal6655.github.io/yash-industery/#rfq\n` +
-              `(On the live website, your drawing is uploaded and emailed directly to yashindustries018@gmail.com!)\n\n` +
-              `Click OK to open the live website, or Cancel to open Gmail instead.`;
-
-            if (confirm(promptMsg)) {
-              window.open('https://royal6655.github.io/yash-industery/#rfq', '_blank');
-              return;
-            }
-          }
-
-          showToast('Opening Gmail to send your quote request...');
-          setTimeout(() => { window.open(gmailUrl, '_blank'); }, 400);
+          showToast('Redirecting to Live Website for automatic PDF upload...');
+          setTimeout(() => {
+            window.open('https://royal6655.github.io/yash-industery/#rfq', '_blank');
+          }, 600);
           return;
         }
 
-        // On live web server (http: or https:): FormSubmit processes the form and file attachment
+        // On live web server (http: or https:): FormSubmit processes the form and uploads the PDF drawing
         const nextInput = rfqForm.querySelector('input[name="_next"]');
         if (nextInput && window.location.href.startsWith('http')) {
           nextInput.value = window.location.origin + window.location.pathname + '#rfq-success';
         }
-        showToast('Submitting RFQ with drawing attachment to Yash Industries...');
+        showToast('Submitting RFQ and uploading drawing to Yash Industries...');
       });
     }
   }

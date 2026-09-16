@@ -146,6 +146,7 @@
     initDownloadsManager();
     initContactForm();
     initScrollToTop();
+    checkOfflinePreview();
 
     if (window.lucide) {
       window.lucide.createIcons();
@@ -722,6 +723,14 @@
           return;
         }
 
+        // When opened locally as file:/// - FormSubmit security-blocks offline files
+        if (window.location.protocol === 'file:') {
+          e.preventDefault();
+          alert('⚠️ Offline File Notice:\n\nForm submissions and drawing uploads require a web server.\n\nRedirecting to your Live Website (https://royal6655.github.io/yash-industery/#rfq) where form submissions and PDF uploads work!');
+          window.location.href = 'https://royal6655.github.io/yash-industery/#rfq';
+          return;
+        }
+
         const submitBtn = document.getElementById('btn-rfq-submit-email');
         if (submitBtn) {
           submitBtn.disabled = true;
@@ -861,6 +870,21 @@
 
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+
+  // Offline File Preview Banner
+  function checkOfflinePreview() {
+    if (window.location.protocol === 'file:') {
+      const banner = document.createElement('div');
+      banner.id = 'offline-preview-alert-bar';
+      banner.style.cssText = 'background: #dc2626; color: #fff; padding: 10px 16px; text-align: center; font-weight: 600; font-size: 14px; position: fixed; top: 0; left: 0; width: 100%; z-index: 999999; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;';
+      banner.innerHTML = `
+        <span>⚠️ You are browsing an offline local file (file:///). Online form submissions &amp; drawing uploads require the live website.</span>
+        <a href="https://royal6655.github.io/yash-industery/#rfq" style="background: #fff; color: #dc2626; padding: 4px 12px; border-radius: 4px; text-decoration: none; font-weight: 700;">Open Live Website</a>
+      `;
+      document.body.prepend(banner);
+      document.body.style.paddingTop = '45px';
+    }
   }
 
   window.showPortalToast = showToast;

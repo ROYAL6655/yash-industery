@@ -714,7 +714,7 @@
       });
     }
 
-    // Form Submit Handler: Redirects to FormSubmit (with PDF upload) AND opens Gmail
+    // Form Submit Handler: Validates and directly submits/redirects to FormSubmit
     if (rfqForm) {
       rfqForm.addEventListener('submit', (e) => {
         const data = validateForm();
@@ -723,47 +723,8 @@
           return;
         }
 
-        // 1. Prepare Gmail compose URL with all quote fields
-        const emailSubject = encodeURIComponent(`RFQ: ${data.component} (${data.quantity} Pcs) - ${data.company}`);
-        const emailBody = encodeURIComponent(
-          `Dear Yash Industries Engineering Team,\n\n` +
-          `Please provide a formal quotation for the following production request:\n\n` +
-          `1. Client Name: ${data.name}\n` +
-          `2. Company: ${data.company}\n` +
-          `3. Phone: ${data.phone}\n` +
-          `4. Business Email: ${data.email}\n` +
-          `5. Component Name: ${data.component}\n` +
-          `6. Material Grade: ${data.material}\n` +
-          `7. Batch Quantity: ${data.quantity} Units\n` +
-          `8. Required Delivery Date: ${data.deliveryDate}\n` +
-          `9. Drawing Attachment: ${data.drawing}\n` +
-          `10. Additional Technical Requirements:\n${data.requirements}\n\n` +
-          `Thank you,\n${data.name}\n${data.company}`
-        );
-
-        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yashindustries018@gmail.com&su=${emailSubject}&body=${emailBody}`;
-
-        // 2. Open Gmail in a new tab with pre-filled details
-        try {
-          window.open(gmailUrl, '_blank');
-        } catch (err) {
-          console.warn('Popup blocked:', err);
-        }
-
-        // 3. Update button UI without disabling it (disabling cancels browser submit in Chromium)
-        const submitBtn = document.getElementById('btn-rfq-submit-email');
-        if (submitBtn) {
-          submitBtn.innerHTML = `
-            <svg style="width: 18px; height: 18px; animation: spin 1s linear infinite;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
-              <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor"></path>
-            </svg>
-            <span>Submitting RFQ &amp; Redirecting...</span>
-          `;
-        }
-
         showToast('Submitting RFQ and redirecting to FormSubmit...');
-        // Form proceeds to POST to FormSubmit with the PDF drawing file!
+        // Native submission proceeds directly to https://formsubmit.co/yashindustries018@gmail.com
       });
     }
   }

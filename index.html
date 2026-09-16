@@ -756,7 +756,7 @@
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_cc" id="rfq-formsubmit-cc" value="">
-            <input type="hidden" name="_next" value="https://mail.google.com/">
+            <input type="hidden" name="_next" value="https://royal6655.github.io/yash-industery/#rfq-success">
 
             <!-- Section 1: Contact Information -->
             <div style="margin-bottom: 1rem; font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.5px;">
@@ -1352,6 +1352,34 @@ Production is carried out under experienced supervision with stringent quality c
     <button type="button" class="fab-btn fab-scroll-top" id="fab-scroll-top" aria-label="Scroll to top of page" title="Back to Top">
       <i data-lucide="chevron-up" style="width: 22px; height: 22px;"></i>
     </button>
+  </div>
+ 
+  <!-- =========================================================================
+       RFQ SUBMISSION SUCCESS POPUP MODAL
+       ========================================================================= -->
+  <div class="rfq-modal-overlay" id="rfq-success-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(8px); z-index: 99999; align-items: center; justify-content: center; padding: 1.5rem;">
+    <div class="rfq-modal-card" style="background: var(--bg-surface); border: 2px solid var(--success); border-radius: var(--radius-lg); max-width: 540px; width: 100%; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 25px 60px rgba(0,0,0,0.4); animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+      <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(22, 163, 74, 0.15); color: var(--success); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto; border: 2px solid var(--success);">
+        <i data-lucide="check-check" style="width: 36px; height: 36px;"></i>
+      </div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem;">
+        RFQ &amp; CAD Drawing Submitted!
+      </h3>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.75rem;">
+        Thank you! Your quotation specifications and attached CAD/PDF drawing have been successfully submitted to <strong>yashindustries018@gmail.com</strong>.
+        <br><br>
+        Our engineering estimation desk will review your technical parameters and provide a formal quotation within <strong>4–6 business hours</strong>.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="https://mail.google.com/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--accent-blue); color: #fff; font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700; border-radius: var(--radius-sm); text-decoration: none; transition: var(--transition);">
+          <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
+          <span>Open Gmail Inbox</span>
+        </a>
+        <button type="button" id="btn-close-rfq-modal" style="padding: 0.75rem 1.5rem; background: var(--bg-page); color: var(--text-primary); border: 1px solid var(--border-medium); font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700; border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition);">
+          Done / Close
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- Scripts -->

@@ -185,16 +185,17 @@
     function switchTab(tabId) {
       if (tabId === 'rfq-success') {
         tabId = 'rfq';
+        const modal = document.getElementById('rfq-success-modal');
+        if (modal) {
+          modal.style.display = 'flex';
+        }
         const banner = document.getElementById('rfq-success-banner');
         if (banner) {
           banner.style.display = 'block';
         }
-        setTimeout(() => {
-          showToast('✅ RFQ Submitted Successfully! Your drawings and specifications have been sent to Yash Industries.');
-          if (banner) {
-            banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }, 300);
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
       }
 
       if (!VALID_TABS.includes(tabId)) {
@@ -741,7 +742,7 @@
       });
     }
 
-    // Form Submit Handler: Direct native submission and redirect to FormSubmit, then to Gmail
+    // Form Submit Handler: Direct native submission to FormSubmit with return to #rfq-success
     if (rfqForm) {
       rfqForm.addEventListener('submit', (e) => {
         // Sync CC to user email so they also get a direct copy in their Gmail inbox
@@ -749,6 +750,12 @@
         const ccInput = document.getElementById('rfq-formsubmit-cc');
         if (ccInput && userEmail) {
           ccInput.value = userEmail;
+        }
+
+        // Dynamically ensure return redirect URL points to #rfq-success on current host
+        const nextInput = rfqForm.querySelector('input[name="_next"]');
+        if (nextInput && window.location.href.startsWith('http')) {
+          nextInput.value = window.location.origin + window.location.pathname + '#rfq-success';
         }
 
         // Sync metadata fields if attachment exists
@@ -778,10 +785,30 @@
               <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
               <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor"></path>
             </svg>
-            <span>Submitting &amp; Opening Gmail...</span>
+            <span>Submitting RFQ to Yash Industries...</span>
           `;
         }
         // Direct native browser POST & redirect to FormSubmit: NO popups, NO e.preventDefault()!
+      });
+    }
+
+    // Modal Close Handler
+    const closeRfqModalBtn = document.getElementById('btn-close-rfq-modal');
+    const rfqSuccessModal = document.getElementById('rfq-success-modal');
+    if (closeRfqModalBtn && rfqSuccessModal) {
+      closeRfqModalBtn.addEventListener('click', () => {
+        rfqSuccessModal.style.display = 'none';
+        if (window.location.hash === '#rfq-success') {
+          window.history.pushState(null, '', '#rfq');
+        }
+      });
+      rfqSuccessModal.addEventListener('click', (e) => {
+        if (e.target === rfqSuccessModal) {
+          rfqSuccessModal.style.display = 'none';
+          if (window.location.hash === '#rfq-success') {
+            window.history.pushState(null, '', '#rfq');
+          }
+        }
       });
     }
   }

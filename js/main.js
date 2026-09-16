@@ -713,32 +713,97 @@
       });
     }
 
-    // Form Submit Handler (Handles both local file preview and live web server)
+    // Form Submit Handler (Seamless In-Page AJAX Submission with File Upload)
     if (rfqForm) {
-      rfqForm.addEventListener('submit', (e) => {
-        const data = validateForm();
-        if (!data) {
-          e.preventDefault();
-          return;
-        }
+      rfqForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-        // When opened locally via file:/// protocol: FormSubmit requires an HTTP/HTTPS web server
+        const data = validateForm();
+        if (!data) return;
+
+        const submitBtn = document.getElementById('btn-rfq-submit-email');
+        const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+
+        // If opened locally via file:/// protocol, redirect to live site where web server APIs work
         if (window.location.protocol === 'file:') {
-          e.preventDefault();
-          showToast('Redirecting to Live Website for automatic PDF upload...');
+          showToast('Notice: Testing on offline file. Opening live website for file upload...');
           setTimeout(() => {
             window.open('https://royal6655.github.io/yash-industery/#rfq', '_blank');
           }, 600);
           return;
         }
 
-        // On live web server (http: or https:): FormSubmit processes the form and uploads the PDF drawing
-        const nextInput = rfqForm.querySelector('input[name="_next"]');
-        if (nextInput && window.location.href.startsWith('http')) {
-          nextInput.value = window.location.origin + window.location.pathname + '#rfq-success';
+        // Show loading spinner on button
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.style.opacity = '0.75';
+          submitBtn.innerHTML = `
+            <svg style="width: 18px; height: 18px; animation: spin 1s linear infinite;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+              <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor"></path>
+            </svg>
+            <span>Uploading Drawing &amp; Submitting RFQ...</span>
+          `;
         }
-        showToast('Submitting RFQ and uploading drawing to Yash Industries...');
+
+        try {
+          const formData = new FormData(rfqForm);
+          formData.set('_captcha', 'false');
+
+          const response = await fetch('https://formsubmit.co/ajax/yashindustries018@gmail.com', {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          const result = await response.json();
+
+          if (result && (result.success === 'true' || result.success === true)) {
+            showSuccessBanner(data.name, data.component);
+            rfqForm.reset();
+            clearFile();
+            showToast('✅ RFQ and CAD Drawing successfully submitted to Yash Industries!');
+          } else {
+            throw new Error(result.message || 'Submission failed');
+          }
+        } catch (err) {
+          console.error('Submission error:', err);
+          showToast('Form submission encountered an error. Opening WhatsApp ticket...');
+          if (btnSubmitWhatsapp) {
+            btnSubmitWhatsapp.click();
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.innerHTML = originalBtnHtml;
+          }
+        }
       });
+    }
+
+    function showSuccessBanner(name, component) {
+      const existing = document.getElementById('rfq-success-banner');
+      if (existing) existing.remove();
+
+      const banner = document.createElement('div');
+      banner.id = 'rfq-success-banner';
+      banner.style.cssText = 'background: rgba(22, 163, 74, 0.12); border: 1.5px solid #22c55e; border-radius: 12px; padding: 1.75rem; margin-bottom: 2rem; text-align: center; color: var(--text-primary);';
+      banner.innerHTML = `
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: #22c55e; color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem auto; font-size: 24px; font-weight: bold;">✓</div>
+        <h3 style="color: #22c55e; margin-bottom: 0.5rem; font-size: 1.3rem; font-family: var(--font-heading);">RFQ &amp; Drawing Submitted Successfully!</h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); max-width: 620px; margin: 0 auto 0.75rem auto; line-height: 1.6;">
+          Thank you, <strong>${name || 'Client'}</strong>. Your technical parameters for <strong>${component || 'your component'}</strong> and attached drawing have been sent to <strong>yashindustries018@gmail.com</strong>.
+        </p>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+          Our engineering team will assess your specifications and provide a formal quotation within 24 hours.
+        </div>
+      `;
+
+      rfqForm.prepend(banner);
+      banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
 

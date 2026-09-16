@@ -662,8 +662,6 @@
         if (window.lucide) {
           window.lucide.createIcons();
         }
-
-        showToast(`✅ Selected: "${file.name}" (${sizeFormatted})`);
       }
 
       function clearFile() {
@@ -673,7 +671,6 @@
         if (hiddenDrawingSize) hiddenDrawingSize.value = 'N/A';
         if (dropzonePrompt) dropzonePrompt.style.display = 'block';
         if (fileChosenTag) fileChosenTag.style.display = 'none';
-        showToast('Drawing attachment cleared');
       }
     }
 
@@ -693,52 +690,22 @@
         nameInput?.focus();
         return false;
       }
-      if (!company) {
-        showToast('Please enter your Company name');
-        companyInput?.focus();
-        return false;
-      }
       if (!phone) {
         showToast('Please enter your Phone or WhatsApp number');
         phoneInput?.focus();
         return false;
       }
-      if (!email) {
-        showToast('Please enter your Business Email');
-        emailInput?.focus();
-        return false;
-      }
-      if (!component) {
-        showToast('Please enter the Component Name / Part Description');
-        componentInput?.focus();
-        return false;
-      }
-      if (!material) {
-        showToast('Please select a Material Grade');
-        materialSelect?.focus();
-        return false;
-      }
-      if (!quantity || parseInt(quantity) <= 0) {
-        showToast('Please enter a valid Quantity');
-        quantityInput?.focus();
-        return false;
-      }
-      if (!deliveryDate) {
-        showToast('Please select your Required Delivery Date');
-        deliveryDateInput?.focus();
-        return false;
-      }
 
       return {
         name,
-        company,
+        company: company || 'Industrial Client',
         phone,
-        email,
-        component,
-        material,
-        quantity,
-        deliveryDate,
-        drawing: uploadedFileName || 'Not attached (will email separately)',
+        email: email || 'N/A',
+        component: component || 'Precision Component',
+        material: material || 'As per Drawing',
+        quantity: quantity || '1',
+        deliveryDate: deliveryDate || 'Standard Schedule',
+        drawing: uploadedFileName || 'Not attached (will share via WhatsApp)',
         requirements: requirementsInput?.value.trim() || 'Standard tolerances & finishing as per drawing'
       };
     }
@@ -774,21 +741,15 @@
       });
     }
 
-    // Form Submit Handler: Validates and directly submits/redirects to FormSubmit
+    // Form Submit Handler: Direct native submission and redirect to FormSubmit without popup
     if (rfqForm) {
       rfqForm.addEventListener('submit', (e) => {
-        const data = validateForm();
-        if (!data) {
-          e.preventDefault();
-          return;
-        }
-
-        // Verify attachment status
+        // Sync metadata fields if attachment exists
         if (fileInput && fileInput.files && fileInput.files.length > 0) {
           const file = fileInput.files[0];
           if (file.size > 10 * 1024 * 1024) {
             e.preventDefault();
-            showToast(`⚠️ File "${file.name}" exceeds 10MB limit. Please upload a smaller file.`);
+            alert(`File "${file.name}" exceeds the 10MB limit. Please choose a file under 10MB.`);
             return;
           }
           if (hiddenDrawingName) hiddenDrawingName.value = file.name;
@@ -797,13 +758,23 @@
               ? (file.size / (1024 * 1024)).toFixed(2) + ' MB' 
               : (file.size / 1024).toFixed(1) + ' KB';
           }
-          showToast(`🚀 Submitting RFQ with "${file.name}" to Yash Industries...`);
         } else {
           if (hiddenDrawingName) hiddenDrawingName.value = 'None Attached';
           if (hiddenDrawingSize) hiddenDrawingSize.value = 'N/A';
-          showToast('🚀 Submitting RFQ specifications to Yash Industries...');
         }
-        // Native browser submission proceeds directly to https://formsubmit.co/yashindustries018@gmail.com
+
+        // Visual button status while redirecting (no popup message)
+        const submitBtn = document.getElementById('btn-rfq-submit-email');
+        if (submitBtn) {
+          submitBtn.innerHTML = `
+            <svg style="width: 18px; height: 18px; animation: spin 1s linear infinite; margin-right: 0.5rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+              <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor"></path>
+            </svg>
+            <span>Redirecting to FormSubmit...</span>
+          `;
+        }
+        // Direct native browser POST & redirect to FormSubmit: NO popups, NO e.preventDefault()!
       });
     }
   }

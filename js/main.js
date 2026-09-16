@@ -871,7 +871,7 @@
         const title = item.querySelector('.gallery-title')?.textContent || 'Factory Asset';
         const img = item.querySelector('img');
         const desc = item.querySelector('.corporate-card-desc')?.textContent || '';
-        const cat = item.querySelector('span')?.textContent || 'Manufactured Component';
+        const cat = item.querySelector('span')?.textContent || (item.getAttribute('data-gallery-cat') === 'machines' ? 'Plant & Machinery' : 'Manufactured Product');
 
         if (img && lightboxModal && lightboxImg) {
           lightboxImg.src = img.src;

@@ -744,24 +744,26 @@
         const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yashindustries018@gmail.com&su=${emailSubject}&body=${emailBody}`;
 
         // 2. Open Gmail in a new tab with pre-filled details
-        window.open(gmailUrl, '_blank');
+        try {
+          window.open(gmailUrl, '_blank');
+        } catch (err) {
+          console.warn('Popup blocked:', err);
+        }
 
-        // 3. Update button UI
+        // 3. Update button UI without disabling it (disabling cancels browser submit in Chromium)
         const submitBtn = document.getElementById('btn-rfq-submit-email');
         if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.style.opacity = '0.75';
           submitBtn.innerHTML = `
             <svg style="width: 18px; height: 18px; animation: spin 1s linear infinite;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
               <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor"></path>
             </svg>
-            <span>Redirecting to FormSubmit &amp; Opening Gmail...</span>
+            <span>Submitting RFQ &amp; Redirecting...</span>
           `;
         }
 
-        showToast('Opening Gmail and redirecting to FormSubmit...');
-        // Form naturally proceeds to POST to FormSubmit with the PDF drawing file!
+        showToast('Submitting RFQ and redirecting to FormSubmit...');
+        // Form proceeds to POST to FormSubmit with the PDF drawing file!
       });
     }
   }

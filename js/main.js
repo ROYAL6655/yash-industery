@@ -552,7 +552,7 @@
     // Drag and drop drawing upload handling
     if (dropzone && fileInput) {
       dropzone.addEventListener('click', (e) => {
-        if (e.target !== btnRemoveAttachment) {
+        if (e.target !== fileInput && e.target !== btnRemoveAttachment && !btnRemoveAttachment?.contains(e.target)) {
           fileInput.click();
         }
       });
@@ -572,13 +572,14 @@
       });
 
       dropzone.addEventListener('drop', (e) => {
-        if (e.dataTransfer.files.length) {
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
+          fileInput.files = e.dataTransfer.files;
           handleFile(e.dataTransfer.files[0]);
         }
       });
 
       fileInput.addEventListener('change', (e) => {
-        if (e.target.files.length) {
+        if (e.target.files && e.target.files.length) {
           handleFile(e.target.files[0]);
         }
       });
@@ -714,10 +715,9 @@
           return;
         }
 
-        // When opened locally via file://: FormSubmit blocks file://, so open Gmail directly with prefilled details
+        // When opened locally via file://: Web browsers block auto-attaching local files to Gmail
         if (window.location.protocol === 'file:') {
           e.preventDefault();
-          showToast('Local preview: Opening Gmail with pre-filled RFQ...');
 
           const emailSubject = encodeURIComponent(`RFQ: ${data.component} (${data.quantity} Pcs) - ${data.company}`);
           const emailBody = encodeURIComponent(
@@ -737,7 +737,13 @@
           );
 
           const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yashindustries018@gmail.com&su=${emailSubject}&body=${emailBody}`;
-          setTimeout(() => { window.open(gmailUrl, '_blank'); }, 600);
+
+          if (uploadedFileName) {
+            alert(`Selected Drawing: "${uploadedFileName}"\n\nNote: For browser security, offline files cannot be automatically attached to Gmail drafts.\n\nGmail will now open with your quote specifications. Please click the paperclip icon (📎) in Gmail to attach "${uploadedFileName}".\n\nOn the live website, files are uploaded and emailed automatically!`);
+          }
+
+          showToast('Opening Gmail to send your quote request...');
+          setTimeout(() => { window.open(gmailUrl, '_blank'); }, 400);
           return;
         }
 

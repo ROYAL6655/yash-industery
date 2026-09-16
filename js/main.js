@@ -741,9 +741,16 @@
       });
     }
 
-    // Form Submit Handler: Direct native submission and redirect to FormSubmit without popup
+    // Form Submit Handler: Direct native submission and redirect to FormSubmit, then to Gmail
     if (rfqForm) {
       rfqForm.addEventListener('submit', (e) => {
+        // Sync CC to user email so they also get a direct copy in their Gmail inbox
+        const userEmail = emailInput ? emailInput.value.trim() : '';
+        const ccInput = document.getElementById('rfq-formsubmit-cc');
+        if (ccInput && userEmail) {
+          ccInput.value = userEmail;
+        }
+
         // Sync metadata fields if attachment exists
         if (fileInput && fileInput.files && fileInput.files.length > 0) {
           const file = fileInput.files[0];
@@ -771,7 +778,7 @@
               <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
               <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor"></path>
             </svg>
-            <span>Redirecting to FormSubmit...</span>
+            <span>Submitting &amp; Opening Gmail...</span>
           `;
         }
         // Direct native browser POST & redirect to FormSubmit: NO popups, NO e.preventDefault()!

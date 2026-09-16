@@ -185,8 +185,15 @@
     function switchTab(tabId) {
       if (tabId === 'rfq-success') {
         tabId = 'rfq';
+        const banner = document.getElementById('rfq-success-banner');
+        if (banner) {
+          banner.style.display = 'block';
+        }
         setTimeout(() => {
           showToast('✅ RFQ Submitted Successfully! Your drawings and specifications have been sent to Yash Industries.');
+          if (banner) {
+            banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
         }, 300);
       }
 
@@ -543,7 +550,12 @@
     const dropzonePrompt = document.getElementById('dropzone-prompt');
     const fileChosenTag = document.getElementById('file-chosen-tag');
     const filenameLabel = document.getElementById('filename-label');
+    const filesizeLabel = document.getElementById('filesize-label');
+    const btnBrowseFile = document.getElementById('btn-browse-file');
+    const btnChangeAttachment = document.getElementById('btn-change-attachment');
     const btnRemoveAttachment = document.getElementById('btn-remove-attachment');
+    const hiddenDrawingName = document.getElementById('rfq-hidden-drawing-name');
+    const hiddenDrawingSize = document.getElementById('rfq-hidden-drawing-size');
 
     const btnSubmitWhatsapp = document.getElementById('btn-rfq-submit-whatsapp');
     const btnSubmitEmail = document.getElementById('btn-rfq-submit-email');
@@ -557,17 +569,41 @@
       deliveryDateInput.min = tomorrow.toISOString().split('T')[0];
     }
 
-    // Drag and drop drawing upload handling
+    // Drag and drop & manual file upload handling
     if (dropzone && fileInput) {
-      dropzone.addEventListener('click', (e) => {
-        if (e.target !== fileInput && e.target !== btnRemoveAttachment && !btnRemoveAttachment?.contains(e.target)) {
+      // Clicking prompt or browse button triggers native file chooser
+      if (dropzonePrompt) {
+        dropzonePrompt.addEventListener('click', () => {
           fileInput.click();
-        }
-      });
+        });
+      }
 
+      if (btnBrowseFile) {
+        btnBrowseFile.addEventListener('click', (e) => {
+          e.stopPropagation();
+          fileInput.click();
+        });
+      }
+
+      if (btnChangeAttachment) {
+        btnChangeAttachment.addEventListener('click', (e) => {
+          e.stopPropagation();
+          fileInput.click();
+        });
+      }
+
+      if (btnRemoveAttachment) {
+        btnRemoveAttachment.addEventListener('click', (e) => {
+          e.stopPropagation();
+          clearFile();
+        });
+      }
+
+      // Drag & drop handlers
       ['dragenter', 'dragover'].forEach(eventName => {
         dropzone.addEventListener(eventName, (e) => {
           e.preventDefault();
+          e.stopPropagation();
           dropzone.classList.add('dragover');
         });
       });
@@ -575,14 +611,20 @@
       ['dragleave', 'drop'].forEach(eventName => {
         dropzone.addEventListener(eventName, (e) => {
           e.preventDefault();
+          e.stopPropagation();
           dropzone.classList.remove('dragover');
         });
       });
 
       dropzone.addEventListener('drop', (e) => {
         if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
-          fileInput.files = e.dataTransfer.files;
-          handleFile(e.dataTransfer.files[0]);
+          const file = e.dataTransfer.files[0];
+          try {
+            fileInput.files = e.dataTransfer.files;
+          } catch (err) {
+            console.warn('DataTransfer files assignment:', err);
+          }
+          handleFile(file);
         }
       });
 
@@ -592,28 +634,46 @@
         }
       });
 
-      if (btnRemoveAttachment) {
-        btnRemoveAttachment.addEventListener('click', (e) => {
-          e.stopPropagation();
-          clearFile();
-        });
-      }
-
       function handleFile(file) {
-        uploadedFileName = file.name;
-        if (filenameLabel) {
-          filenameLabel.textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+        if (!file) return;
+
+        // FormSubmit strict 10MB limit check
+        const MAX_BYTES = 10 * 1024 * 1024;
+        if (file.size > MAX_BYTES) {
+          showToast(`⚠️ File "${file.name}" exceeds 10MB (${(file.size / (1024 * 1024)).toFixed(1)}MB). Please compress or ZIP.`);
+          clearFile();
+          return;
         }
+
+        uploadedFileName = file.name;
+        const sizeFormatted = file.size >= 1024 * 1024 
+          ? (file.size / (1024 * 1024)).toFixed(2) + ' MB' 
+          : (file.size / 1024).toFixed(1) + ' KB';
+
+        if (filenameLabel) filenameLabel.textContent = file.name;
+        if (filesizeLabel) filesizeLabel.textContent = sizeFormatted;
+
+        if (hiddenDrawingName) hiddenDrawingName.value = file.name;
+        if (hiddenDrawingSize) hiddenDrawingSize.value = sizeFormatted;
+
         if (dropzonePrompt) dropzonePrompt.style.display = 'none';
-        if (fileChosenTag) fileChosenTag.style.display = 'inline-flex';
-        showToast(`CAD file "${file.name}" attached successfully!`);
+        if (fileChosenTag) fileChosenTag.style.display = 'block';
+
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+
+        showToast(`✅ Selected: "${file.name}" (${sizeFormatted})`);
       }
 
       function clearFile() {
         uploadedFileName = '';
         fileInput.value = '';
+        if (hiddenDrawingName) hiddenDrawingName.value = 'None Attached';
+        if (hiddenDrawingSize) hiddenDrawingSize.value = 'N/A';
         if (dropzonePrompt) dropzonePrompt.style.display = 'block';
         if (fileChosenTag) fileChosenTag.style.display = 'none';
+        showToast('Drawing attachment cleared');
       }
     }
 
@@ -723,8 +783,27 @@
           return;
         }
 
-        showToast('Submitting RFQ and redirecting to FormSubmit...');
-        // Native submission proceeds directly to https://formsubmit.co/yashindustries018@gmail.com
+        // Verify attachment status
+        if (fileInput && fileInput.files && fileInput.files.length > 0) {
+          const file = fileInput.files[0];
+          if (file.size > 10 * 1024 * 1024) {
+            e.preventDefault();
+            showToast(`⚠️ File "${file.name}" exceeds 10MB limit. Please upload a smaller file.`);
+            return;
+          }
+          if (hiddenDrawingName) hiddenDrawingName.value = file.name;
+          if (hiddenDrawingSize) {
+            hiddenDrawingSize.value = file.size >= 1024 * 1024 
+              ? (file.size / (1024 * 1024)).toFixed(2) + ' MB' 
+              : (file.size / 1024).toFixed(1) + ' KB';
+          }
+          showToast(`🚀 Submitting RFQ with "${file.name}" to Yash Industries...`);
+        } else {
+          if (hiddenDrawingName) hiddenDrawingName.value = 'None Attached';
+          if (hiddenDrawingSize) hiddenDrawingSize.value = 'N/A';
+          showToast('🚀 Submitting RFQ specifications to Yash Industries...');
+        }
+        // Native browser submission proceeds directly to https://formsubmit.co/yashindustries018@gmail.com
       });
     }
   }

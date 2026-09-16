@@ -182,6 +182,13 @@
   // =========================================================================
   function initTabRouter() {
     function switchTab(tabId) {
+      if (tabId === 'rfq-success') {
+        tabId = 'rfq';
+        setTimeout(() => {
+          showToast('✅ RFQ Submitted Successfully! Your drawings and specifications have been sent to Yash Industries.');
+        }, 300);
+      }
+
       if (!VALID_TABS.includes(tabId)) {
         tabId = 'home';
       }
@@ -739,7 +746,18 @@
           const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=yashindustries018@gmail.com&su=${emailSubject}&body=${emailBody}`;
 
           if (uploadedFileName) {
-            alert(`Selected Drawing: "${uploadedFileName}"\n\nNote: For browser security, offline files cannot be automatically attached to Gmail drafts.\n\nGmail will now open with your quote specifications. Please click the paperclip icon (📎) in Gmail to attach "${uploadedFileName}".\n\nOn the live website, files are uploaded and emailed automatically!`);
+            const promptMsg = 
+              `📁 Selected File: "${uploadedFileName}"\n\n` +
+              `NOTE: Web browsers (Chrome, Edge) strictly forbid websites from automatically attaching local files into Gmail drafts.\n\n` +
+              `To test REAL automatic file upload & delivery:\n` +
+              `👉 Test on your live website: https://royal6655.github.io/yash-industery/#rfq\n` +
+              `(On the live website, your drawing is uploaded and emailed directly to yashindustries018@gmail.com!)\n\n` +
+              `Click OK to open the live website, or Cancel to open Gmail instead.`;
+
+            if (confirm(promptMsg)) {
+              window.open('https://royal6655.github.io/yash-industery/#rfq', '_blank');
+              return;
+            }
           }
 
           showToast('Opening Gmail to send your quote request...');
@@ -750,7 +768,7 @@
         // On live web server (http: or https:): FormSubmit processes the form and file attachment
         const nextInput = rfqForm.querySelector('input[name="_next"]');
         if (nextInput && window.location.href.startsWith('http')) {
-          nextInput.value = window.location.href;
+          nextInput.value = window.location.origin + window.location.pathname + '#rfq-success';
         }
         showToast('Submitting RFQ with drawing attachment to Yash Industries...');
       });

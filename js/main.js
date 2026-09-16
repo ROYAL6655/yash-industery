@@ -840,10 +840,48 @@
       });
     });
 
+    const lightboxModal = document.getElementById('gallery-lightbox-modal');
+    const lightboxImg = document.getElementById('gallery-lightbox-img');
+    const lightboxTitle = document.getElementById('gallery-lightbox-title');
+    const lightboxDesc = document.getElementById('gallery-lightbox-desc');
+    const lightboxCat = document.getElementById('gallery-lightbox-cat');
+    const closeLightboxBtn = document.getElementById('btn-close-gallery-lightbox');
+
+    if (closeLightboxBtn && lightboxModal) {
+      closeLightboxBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lightboxModal.style.display = 'none';
+      });
+
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) {
+          lightboxModal.style.display = 'none';
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightboxModal.style.display === 'flex') {
+          lightboxModal.style.display = 'none';
+        }
+      });
+    }
+
     galleryItems.forEach(item => {
       item.addEventListener('click', () => {
         const title = item.querySelector('.gallery-title')?.textContent || 'Factory Asset';
-        showToast(`Viewing high-resolution preview of "${title}"`);
+        const img = item.querySelector('img');
+        const desc = item.querySelector('.corporate-card-desc')?.textContent || '';
+        const cat = item.querySelector('span')?.textContent || 'Manufactured Component';
+
+        if (img && lightboxModal && lightboxImg) {
+          lightboxImg.src = img.src;
+          if (lightboxTitle) lightboxTitle.textContent = title;
+          if (lightboxDesc) lightboxDesc.textContent = desc;
+          if (lightboxCat) lightboxCat.textContent = cat;
+          lightboxModal.style.display = 'flex';
+        } else {
+          showToast(`Viewing high-resolution preview of "${title}"`);
+        }
       });
     });
   }

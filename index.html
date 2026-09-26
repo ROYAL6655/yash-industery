@@ -25,62 +25,90 @@
   <!-- =========================================================================
        STICKY MAIN HEADER & NAVIGATION (FOCUS ON LOGO & COMPANY NAME)
        ========================================================================= -->
+  <!-- =========================================================================
+       EXECUTIVE CORPORATE HEADER (SEPARATE FOCUS ON LOGO & COMPANY NAME)
+       ========================================================================= -->
   <header class="site-header">
-    <div class="container nav-container">
-      
-      <!-- Brand Logo & Company Name -->
-      <a class="brand-logo" data-tab="home" aria-label="Yash Industries Home">
-        <div class="brand-symbol">
-          <img src="assets/logo.jpg" alt="Yash Industries Official Logo" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        </div>
-        <div class="brand-text">
-          <span class="brand-name">Yash <span>Industries</span></span>
-          <span class="brand-tagline">Precision Engineering &amp; Manufacturing</span>
-        </div>
-      </a>
+    <!-- Top Branding Showcase: Maximum Dedicated Focus on Logo & Company Name -->
+    <div class="header-brand-bar">
+      <div class="container header-brand-inner">
+        
+        <!-- Brand Identity: Logo + Company Name with Separate Focus -->
+        <a class="brand-identity-box brand-logo" data-tab="home" aria-label="Yash Industries Home">
+          <!-- 1. Dedicated Logo Emblem Focus -->
+          <div class="brand-logo-frame">
+            <img src="assets/logo-emblem.png" alt="Yash Industries Official Emblem" class="brand-logo-img">
+          </div>
+          
+          <div class="brand-divider-line" aria-hidden="true"></div>
 
-      <!-- Desktop Navigation (9 Core Tabs) -->
-      <nav aria-label="Primary Navigation">
-        <ul class="nav-menu">
-          <li><a class="nav-link active-tab" data-tab="home">Home</a></li>
-          <li><a class="nav-link" data-tab="about">About Us</a></li>
-          <li><a class="nav-link" data-tab="capabilities">Capabilities</a></li>
-          <li><a class="nav-link" data-tab="infrastructure">Infrastructure</a></li>
-          <li><a class="nav-link" data-tab="rfq">Request a Quote</a></li>
-          <li><a class="nav-link" data-tab="customers">Customers</a></li>
-          <li><a class="nav-link" data-tab="gallery">Gallery</a></li>
-          <li><a class="nav-link" data-tab="downloads">Downloads</a></li>
-          <li><a class="nav-link" data-tab="contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <!-- Nav Actions (Separated with Visual Divider) -->
-      <div class="nav-actions">
-        <div class="nav-action-divider" aria-hidden="true"></div>
-
-        <!-- Day / Night Theme Switcher (Interactive Industrial Pill Toggle) -->
-        <button type="button" class="theme-switch-pill" id="btn-theme-toggle" aria-label="Toggle Theme (Day / Night)" title="Toggle Theme (Day / Night)">
-          <span class="theme-pill-track">
-            <span class="pill-icon pill-icon-sun" aria-hidden="true"><i data-lucide="sun" style="width: 12px; height: 12px;"></i></span>
-            <span class="pill-icon pill-icon-moon" aria-hidden="true"><i data-lucide="moon" style="width: 12px; height: 12px;"></i></span>
-          </span>
-          <span class="theme-switch-thumb" id="theme-switch-thumb">
-            <i data-lucide="sun" style="width: 13px; height: 13px;"></i>
-          </span>
-        </button>
-
-        <!-- Direct RFQ Action -->
-        <a class="btn-header-rfq" data-tab="rfq">
-          <i data-lucide="file-up" style="width: 15px; height: 15px;"></i>
-          <span>Get Quote</span>
+          <!-- 2. Dedicated Company Name Focus -->
+          <div class="brand-name-group">
+            <div class="brand-corporate-title">
+              <span class="brand-primary-name">YASH</span>
+              <span class="brand-secondary-name">INDUSTRIES</span>
+            </div>
+            <div class="brand-credentials-row">
+              <span class="brand-cert-badge">ISO 9001:2015</span>
+              <span class="brand-spec-txt">Precision CNC &amp; VMC Works</span>
+            </div>
+          </div>
         </a>
 
-        <!-- Mobile Menu Toggle -->
-        <button type="button" class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <!-- Header Quick Connect / Actions -->
+        <div class="header-quick-actions">
+          <div class="header-phone-box">
+            <i data-lucide="phone-call" style="width: 18px; height: 18px; color: #10b981;"></i>
+            <div class="header-phone-text">
+              <span class="header-phone-lbl">ENGINEERING DESK</span>
+              <a href="tel:+919822050017" class="header-phone-link">+91 98220 50017</a>
+            </div>
+          </div>
+
+          <!-- Day / Night Theme Switcher -->
+          <button type="button" class="theme-switch-pill" id="btn-theme-toggle" aria-label="Toggle Theme (Day / Night)" title="Toggle Theme (Day / Night)">
+            <span class="theme-pill-track">
+              <span class="pill-icon pill-icon-sun" aria-hidden="true"><i data-lucide="sun" style="width: 12px; height: 12px;"></i></span>
+              <span class="pill-icon pill-icon-moon" aria-hidden="true"><i data-lucide="moon" style="width: 12px; height: 12px;"></i></span>
+            </span>
+            <span class="theme-switch-thumb" id="theme-switch-thumb">
+              <i data-lucide="sun" style="width: 13px; height: 13px;"></i>
+            </span>
+          </button>
+
+          <!-- Direct RFQ Action -->
+          <a class="btn-header-rfq" data-tab="rfq">
+            <i data-lucide="file-up" style="width: 15px; height: 15px;"></i>
+            <span>Get Quote</span>
+          </a>
+
+          <!-- Mobile Menu Toggle -->
+          <button type="button" class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Navigation Bar: Clean 9 Tabs Across Full Width -->
+    <div class="header-nav-bar">
+      <div class="container nav-container">
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-menu">
+            <li><a class="nav-link active-tab" data-tab="home">Home</a></li>
+            <li><a class="nav-link" data-tab="about">About Us</a></li>
+            <li><a class="nav-link" data-tab="capabilities">Capabilities</a></li>
+            <li><a class="nav-link" data-tab="infrastructure">Infrastructure</a></li>
+            <li><a class="nav-link" data-tab="rfq">Request a Quote</a></li>
+            <li><a class="nav-link" data-tab="customers">Customers</a></li>
+            <li><a class="nav-link" data-tab="gallery">Gallery</a></li>
+            <li><a class="nav-link" data-tab="downloads">Downloads</a></li>
+            <li><a class="nav-link" data-tab="contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </header>
@@ -90,15 +118,12 @@
   <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
     <div>
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-light);">
-        <div class="brand-logo" data-tab="home">
-          <div class="brand-symbol" style="width: 36px; height: 36px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-              <circle cx="12" cy="12" r="3.5" fill="#0284c7"></circle>
-            </svg>
+        <div class="brand-logo" data-tab="home" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+          <div class="brand-symbol" style="width: 40px; height: 40px; border-radius: 8px; overflow: hidden; background: #0b0d11; border: 1.5px solid rgba(2, 132, 199, 0.4); flex-shrink: 0;">
+            <img src="assets/logo-emblem.png" alt="Yash Industries Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 2px; display: block;">
           </div>
           <div class="brand-text">
-            <span class="brand-name" style="font-size: 1.15rem;">Yash <span>Industries</span></span>
+            <span class="brand-name" style="font-size: 1.2rem; font-weight: 800;">Yash <span style="color: var(--accent-blue);">Industries</span></span>
           </div>
         </div>
 

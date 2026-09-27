@@ -367,10 +367,10 @@ button, input, select, textarea {
 .brand-logo-frame {
   width: 62px;
   height: 62px;
-  background: #0b0d11;
+  background: #ffffff;
   border-radius: 12px;
-  border: 2px solid rgba(2, 132, 199, 0.45);
-  box-shadow: 0 4px 16px rgba(11, 37, 69, 0.25), inset 0 0 10px rgba(2, 132, 199, 0.15);
+  border: 2px solid rgba(2, 132, 199, 0.4);
+  box-shadow: 0 4px 16px rgba(11, 37, 69, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -379,9 +379,15 @@ button, input, select, textarea {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+:root[data-theme="dark"] .brand-logo-frame {
+  background: #ffffff;
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 16px rgba(56, 189, 248, 0.25);
+}
+
 .brand-identity-box:hover .brand-logo-frame {
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 8px 22px rgba(2, 132, 199, 0.4), inset 0 0 16px rgba(2, 132, 199, 0.3);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.25);
   border-color: var(--accent-blue);
 }
 

@@ -323,9 +323,7 @@ button, input, select, textarea {
    EXECUTIVE CORPORATE HEADER (HIGH-IMPACT VISUAL FOCUS ON LOGO & BRAND NAME)
    ========================================================================== */
 .site-header {
-  position: sticky;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   z-index: 1000;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);

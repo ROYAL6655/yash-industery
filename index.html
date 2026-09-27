@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="css/style.css?v=3.5">
+  <link rel="stylesheet" href="css/style.css?v=3.6">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -113,20 +113,25 @@
   <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
   <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
     <div>
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-light);">
-        <div class="brand-logo" data-tab="home" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
-          <div class="brand-symbol" style="width: 42px; height: 42px; border-radius: 10px; overflow: hidden; background: #ffffff; border: 1.5px solid rgba(2, 132, 199, 0.4); flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; padding-bottom: 0.85rem; border-bottom: 1px solid var(--border-light); gap: 0.5rem;">
+        <div class="brand-logo" data-tab="home" style="display: flex; align-items: center; gap: 0.65rem; text-decoration: none; cursor: pointer;">
+          <div class="brand-symbol" style="width: 38px; height: 38px; border-radius: 9px; overflow: hidden; background: #ffffff; border: 1.5px solid rgba(2, 132, 199, 0.4); flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
             <img src="assets/logo-emblem.png?v=3.0" alt="Yash Industries Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 2px; display: block;">
           </div>
           <div class="brand-text">
-            <span class="brand-name" style="font-size: 1.2rem; font-weight: 800;">Yash <span style="color: var(--accent-blue);">Industries</span></span>
+            <span class="brand-name" style="font-size: 1.12rem; font-weight: 800;">Yash <span style="color: var(--accent-blue);">Industries</span></span>
           </div>
         </div>
 
-        <button type="button" class="btn-theme-toggle" id="btn-theme-toggle-mobile" style="width: auto; height: 36px; padding: 0 0.75rem; gap: 0.4rem; font-size: 0.8rem; font-weight: 600;">
-          <i data-lucide="moon" style="width: 16px; height: 16px;"></i>
-          <span>Dark Mode</span>
-        </button>
+        <div style="display: flex; align-items: center; gap: 0.45rem;">
+          <button type="button" class="btn-theme-toggle" id="btn-theme-toggle-mobile" style="width: auto; height: 36px; padding: 0 0.65rem; gap: 0.35rem; font-size: 0.78rem; font-weight: 600;" title="Toggle Day/Night Mode">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+            <span>Dark</span>
+          </button>
+          <button type="button" class="drawer-close-btn" id="btn-close-drawer" aria-label="Close navigation drawer" title="Close Menu">
+            <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+          </button>
+        </div>
       </div>
 
       <ul class="mobile-nav-list">
@@ -1477,7 +1482,7 @@ Production is carried out under experienced supervision with stringent quality c
       window.lucide.createIcons();
     }
   </script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=3.6"></script>
 
 </body>
 </html>

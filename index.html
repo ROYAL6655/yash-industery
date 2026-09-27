@@ -20,8 +20,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="css/style.css?v=3.6">
+  <link rel="stylesheet" href="css/style.css?v=3.7">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('yash_theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -64,15 +74,10 @@
           </div>
         </div>
 
-        <!-- Day / Night Theme Switcher -->
-        <button type="button" class="theme-switch-pill" id="btn-theme-toggle" aria-label="Toggle Theme (Day / Night)" title="Toggle Theme (Day / Night)">
-          <span class="theme-pill-track">
-            <span class="pill-icon pill-icon-sun" aria-hidden="true"><i data-lucide="sun" style="width: 12px; height: 12px;"></i></span>
-            <span class="pill-icon pill-icon-moon" aria-hidden="true"><i data-lucide="moon" style="width: 12px; height: 12px;"></i></span>
-          </span>
-          <span class="theme-switch-thumb" id="theme-switch-thumb">
-            <i data-lucide="sun" style="width: 13px; height: 13px;"></i>
-          </span>
+        <!-- Day / Night Theme Switcher (Always visible on mobile & desktop header) -->
+        <button type="button" class="btn-theme-toggle-header" data-theme-toggle id="btn-theme-toggle" aria-label="Toggle Night Mode" title="Toggle Day / Night Mode">
+          <i data-lucide="moon" style="width: 16px; height: 16px;"></i>
+          <span class="theme-header-lbl">Night</span>
         </button>
 
         <!-- Direct RFQ Action -->
@@ -106,6 +111,12 @@
         <li><a class="nav-link" data-tab="downloads">Downloads</a></li>
         <li><a class="nav-link" data-tab="contact">Contact</a></li>
       </ul>
+
+      <!-- Sticky Tab Bar Theme Button (Direct 1-tap when scrolling) -->
+      <button type="button" class="sticky-nav-theme-btn" data-theme-toggle id="btn-theme-toggle-nav" aria-label="Toggle Night Mode" title="Toggle Day / Night Mode">
+        <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+        <span class="theme-nav-lbl">Night</span>
+      </button>
     </div>
   </nav>
 
@@ -1476,13 +1487,19 @@ Production is carried out under experienced supervision with stringent quality c
     </div>
   </div>
 
+  <!-- Floating Day/Night Mode Switcher (Always accessible directly on screen on mobile view) -->
+  <button type="button" class="mobile-floating-theme-btn" data-theme-toggle id="btn-theme-toggle-floating" aria-label="Toggle Night / Day Mode" title="Toggle Night Mode">
+    <i data-lucide="moon" style="width: 17px; height: 17px;"></i>
+    <span class="theme-lbl-text">Night Mode</span>
+  </button>
+
   <!-- Scripts -->
   <script>
     if (window.lucide) {
       window.lucide.createIcons();
     }
   </script>
-  <script src="js/main.js?v=3.6"></script>
+  <script src="js/main.js?v=3.7"></script>
 
 </body>
 </html>

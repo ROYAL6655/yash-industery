@@ -61,8 +61,9 @@
   --transition: 0.25s ease;
 }
 
-/* Optional Dark Theme for users who prefer night viewing */
-:root[data-theme="dark"] {
+/* Modern Dark / Night Theme System */
+:root[data-theme="dark"],
+html[data-theme="dark"] {
   --bg-page: #0a0f18;
   --bg-white: #111827;
   --bg-surface: #111827;
@@ -84,6 +85,13 @@
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 12px 35px rgba(0, 0, 0, 0.5);
   --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+body, .corporate-card, .founder-corporate-card, .capability-card-clean,
+.rfq-form-card, .contact-card-info, .table-responsive-wrapper,
+.modern-fleet-table th, .modern-fleet-table td, .header-brand-bar,
+.header-nav-bar, .mobile-drawer, .page-hero-banner {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 /* ==========================================================================
@@ -703,6 +711,112 @@ button, input, select, textarea {
   color: #38bdf8;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+/* Executive Header Day/Night Switcher Button */
+.btn-theme-toggle-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  border-radius: var(--radius-full);
+  color: #38bdf8;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.btn-theme-toggle-header:active {
+  transform: scale(0.92);
+  background: rgba(56, 189, 248, 0.2);
+}
+
+:root[data-theme="dark"] .btn-theme-toggle-header,
+html[data-theme="dark"] .btn-theme-toggle-header {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: #f59e0b;
+}
+
+/* Sticky Tab Bar Day/Night Button */
+.sticky-nav-theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.8rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-full);
+  color: #38bdf8;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: auto;
+  touch-action: manipulation;
+  transition: all 0.2s ease;
+}
+
+.sticky-nav-theme-btn:active {
+  transform: scale(0.92);
+  background: rgba(56, 189, 248, 0.2);
+}
+
+:root[data-theme="dark"] .sticky-nav-theme-btn,
+html[data-theme="dark"] .sticky-nav-theme-btn {
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+/* Floating Day/Night Mode Switcher on Mobile View */
+.mobile-floating-theme-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-floating-theme-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    position: fixed;
+    bottom: 22px;
+    right: 16px;
+    background: rgba(11, 37, 69, 0.95);
+    color: #ffffff;
+    border: 1.5px solid rgba(56, 189, 248, 0.6);
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-full);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 16px rgba(56, 189, 248, 0.3);
+    font-family: var(--font-heading);
+    font-size: 0.84rem;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 1800;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .mobile-floating-theme-btn:active {
+    transform: scale(0.92);
+  }
+
+  :root[data-theme="dark"] .mobile-floating-theme-btn,
+  html[data-theme="dark"] .mobile-floating-theme-btn {
+    background: rgba(22, 32, 50, 0.96);
+    color: #f59e0b;
+    border-color: rgba(245, 158, 11, 0.65);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 16px rgba(245, 158, 11, 0.35);
+  }
 }
 
 /* Mobile Theme Button inside drawer */
@@ -2613,13 +2727,16 @@ body.drawer-locked {
 }
 
 @media (max-width: 640px) {
-  /* Keep top brand bar uncluttered on phones; Day/Night toggle is accessible in mobile drawer */
-  .header-quick-actions .theme-switch-pill {
-    display: none;
+  .header-quick-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
-  .header-quick-actions {
-    gap: 0.5rem;
+  .btn-theme-toggle-header {
+    display: inline-flex;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.76rem;
   }
 }
 
@@ -2641,7 +2758,12 @@ body.drawer-locked {
 
   .brand-identity-box {
     gap: 0.65rem;
-    max-width: calc(100% - 50px);
+    max-width: calc(100% - 110px);
+  }
+
+  .btn-theme-toggle-header {
+    padding: 0.38rem 0.6rem;
+    font-size: 0.72rem;
   }
 
   .brand-logo-frame {
@@ -2750,6 +2872,18 @@ body.drawer-locked {
 
   .brand-divider-line {
     height: 28px;
+  }
+
+  .btn-theme-toggle-header .theme-header-lbl {
+    display: none;
+  }
+
+  .btn-theme-toggle-header {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    justify-content: center;
+    border-radius: var(--radius-sm);
   }
 
   .menu-toggle-btn {

@@ -270,55 +270,66 @@
     window.navigateToTab = switchTab;
   }
 
-  // 1. Day / Night Theme Switcher Engine
+  // 1. Day / Night Theme Switcher Engine (Universal Multi-Point Sync)
   function initDayNightTheme() {
-    const themeBtn = document.getElementById('btn-theme-toggle');
-    const mobileThemeBtn = document.getElementById('btn-theme-toggle-mobile');
-    
     const savedTheme = localStorage.getItem('yash_theme') || 'light';
-    applyTheme(savedTheme);
+    applyTheme(savedTheme, false);
 
-    function applyTheme(theme) {
+    function applyTheme(theme, showHud = true) {
+      const isDark = theme === 'dark';
       document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('yash_theme', theme);
+      try {
+        localStorage.setItem('yash_theme', theme);
+      } catch (e) {}
 
-      const iconMarkup = theme === 'light' 
-        ? '<i data-lucide="moon" style="width: 18px; height: 18px;"></i>'
-        : '<i data-lucide="sun" style="width: 18px; height: 18px;"></i>';
+      // Update all elements with [data-theme-toggle]
+      const toggleButtons = document.querySelectorAll('[data-theme-toggle]');
+      toggleButtons.forEach(btn => {
+        btn.setAttribute('title', isDark ? 'Switch to Day Mode' : 'Switch to Night Mode');
+        btn.setAttribute('aria-label', isDark ? 'Switch to Day Mode' : 'Switch to Night Mode');
 
-      const themeThumb = document.getElementById('theme-switch-thumb');
-      if (themeThumb) {
-        themeThumb.innerHTML = theme === 'light'
-          ? '<i data-lucide="sun" style="width: 13px; height: 13px;"></i>'
-          : '<i data-lucide="moon" style="width: 13px; height: 13px;"></i>';
-      } else if (themeBtn) {
-        themeBtn.innerHTML = iconMarkup;
-      }
+        // Check if button has specific text label elements
+        const navLbl = btn.querySelector('.theme-nav-lbl');
+        const headerLbl = btn.querySelector('.theme-header-lbl');
+        const textLbl = btn.querySelector('.theme-lbl-text');
 
-      if (themeBtn) {
-        themeBtn.setAttribute('title', theme === 'light' ? 'Switch to Night Mode' : 'Switch to Day Mode');
-      }
-      if (mobileThemeBtn) {
-        mobileThemeBtn.innerHTML = (theme === 'light' 
-          ? '<i data-lucide="moon" style="width: 16px; height: 16px;"></i>' 
-          : '<i data-lucide="sun" style="width: 16px; height: 16px;"></i>') 
-          + ` <span style="font-size: 0.85rem; margin-left: 6px; font-weight: 600;">${theme === 'light' ? 'Night Mode' : 'Day Mode'}</span>`;
-      }
+        if (navLbl) navLbl.textContent = isDark ? 'Day' : 'Night';
+        if (headerLbl) headerLbl.textContent = isDark ? 'Day' : 'Night';
+        if (textLbl) textLbl.textContent = isDark ? 'Day Mode' : 'Night Mode';
+
+        // Check if icon exists
+        const iconSvg = btn.querySelector('svg, i');
+        if (iconSvg) {
+          const newIcon = isDark ? 'sun' : 'moon';
+          iconSvg.outerHTML = `<i data-lucide="${newIcon}" style="width: 16px; height: 16px;"></i>`;
+        }
+      });
 
       if (window.lucide) {
         window.lucide.createIcons();
       }
+
+      if (showHud) {
+        showToast(isDark ? '🌙 Night Mode Activated' : '☀️ Day Mode Activated');
+      }
     }
 
-    function toggleTheme() {
+    function toggleTheme(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
       const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      applyTheme(newTheme);
-      showToast(`Switched to ${newTheme === 'light' ? 'Day Mode (Clean Industrial)' : 'Night Mode (Cyber-Precision)'}`);
+      applyTheme(newTheme, true);
     }
 
-    if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
-    if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+    // Bind click to every theme toggle button on the page
+    document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
+      btn.addEventListener('click', toggleTheme);
+    });
+
+    window.togglePortalTheme = toggleTheme;
   }
 
   // 2. Mobile Navigation Drawer (Instant, Zero-Lag, 120fps Response)

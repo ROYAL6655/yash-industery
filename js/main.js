@@ -830,7 +830,7 @@
         galleryItems.forEach(item => {
           const cat = item.getAttribute('data-gallery-cat');
           if (filter === 'all' || cat === filter) {
-            item.style.display = 'block';
+            item.style.display = '';
             setTimeout(() => { item.style.opacity = '1'; }, 30);
           } else {
             item.style.opacity = '0';

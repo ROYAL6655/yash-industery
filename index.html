@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="css/style.css?v=3.1">
+  <link rel="stylesheet" href="css/style.css?v=3.3">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -28,90 +28,86 @@
   <!-- =========================================================================
        EXECUTIVE CORPORATE HEADER (HIGH-IMPACT VISUAL FOCUS ON LOGO & BRAND NAME)
        ========================================================================= -->
-  <header class="site-header">
-    <!-- Top Branding Showcase: Maximum Dedicated Focus on Logo & Company Name -->
-    <div class="header-brand-bar">
-      <div class="container header-brand-inner">
+  <!-- Top Branding Showcase: Maximum Dedicated Focus on Logo & Company Name (Scrolls with page) -->
+  <header class="header-brand-bar">
+    <div class="container header-brand-inner">
+      
+      <!-- Brand Identity: Logo + Company Name with Separate Focus -->
+      <a class="brand-identity-box brand-logo" data-tab="home" aria-label="Yash Industries Home">
+        <!-- 1. Dedicated Logo Emblem Focus -->
+        <div class="brand-logo-frame">
+          <img src="assets/logo-emblem.png?v=3.2" alt="Yash Industries Official Emblem" class="brand-logo-img">
+        </div>
         
-        <!-- Brand Identity: Logo + Company Name with Separate Focus -->
-        <a class="brand-identity-box brand-logo" data-tab="home" aria-label="Yash Industries Home">
-          <!-- 1. Dedicated Logo Emblem Focus -->
-          <div class="brand-logo-frame">
-            <img src="assets/logo-emblem.png?v=3.0" alt="Yash Industries Official Emblem" class="brand-logo-img">
+        <div class="brand-divider-line" aria-hidden="true"></div>
+
+        <!-- 2. Dedicated Company Name Focus -->
+        <div class="brand-name-group">
+          <div class="brand-corporate-title">
+            <span class="brand-primary-name">YASH</span>
+            <span class="brand-secondary-name">INDUSTRIES</span>
           </div>
-          
-          <div class="brand-divider-line" aria-hidden="true"></div>
-
-          <!-- 2. Dedicated Company Name Focus -->
-          <div class="brand-name-group">
-            <div class="brand-corporate-title">
-              <span class="brand-primary-name">YASH</span>
-              <span class="brand-secondary-name">INDUSTRIES</span>
-            </div>
-            <div class="brand-credentials-row">
-              <span class="brand-cert-badge">ISO 9001:2015</span>
-              <span class="brand-spec-txt">Precision CNC &amp; VMC Works</span>
-            </div>
+          <div class="brand-credentials-row">
+            <span class="brand-cert-badge">ISO 9001:2015</span>
+            <span class="brand-spec-txt">Precision CNC &amp; VMC Works</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Header Quick Connect / Actions -->
-        <div class="header-quick-actions">
-          <div class="header-phone-box">
-            <i data-lucide="phone-call" style="width: 18px; height: 18px; color: #10b981;"></i>
-            <div class="header-phone-text">
-              <span class="header-phone-lbl">ENGINEERING DESK</span>
-              <a href="tel:+919822050017" class="header-phone-link">+91 98220 50017</a>
-            </div>
+      <!-- Header Quick Connect / Actions -->
+      <div class="header-quick-actions">
+        <div class="header-phone-box">
+          <i data-lucide="phone-call" style="width: 18px; height: 18px; color: #10b981;"></i>
+          <div class="header-phone-text">
+            <span class="header-phone-lbl">ENGINEERING DESK</span>
+            <a href="tel:+919822050017" class="header-phone-link">+91 98220 50017</a>
           </div>
-
-          <!-- Day / Night Theme Switcher -->
-          <button type="button" class="theme-switch-pill" id="btn-theme-toggle" aria-label="Toggle Theme (Day / Night)" title="Toggle Theme (Day / Night)">
-            <span class="theme-pill-track">
-              <span class="pill-icon pill-icon-sun" aria-hidden="true"><i data-lucide="sun" style="width: 12px; height: 12px;"></i></span>
-              <span class="pill-icon pill-icon-moon" aria-hidden="true"><i data-lucide="moon" style="width: 12px; height: 12px;"></i></span>
-            </span>
-            <span class="theme-switch-thumb" id="theme-switch-thumb">
-              <i data-lucide="sun" style="width: 13px; height: 13px;"></i>
-            </span>
-          </button>
-
-          <!-- Direct RFQ Action -->
-          <a class="btn-header-rfq" data-tab="rfq">
-            <i data-lucide="file-up" style="width: 15px; height: 15px;"></i>
-            <span>Get Quote</span>
-          </a>
-
-          <!-- Mobile Menu Toggle -->
-          <button type="button" class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
         </div>
 
-      </div>
-    </div>
+        <!-- Day / Night Theme Switcher -->
+        <button type="button" class="theme-switch-pill" id="btn-theme-toggle" aria-label="Toggle Theme (Day / Night)" title="Toggle Theme (Day / Night)">
+          <span class="theme-pill-track">
+            <span class="pill-icon pill-icon-sun" aria-hidden="true"><i data-lucide="sun" style="width: 12px; height: 12px;"></i></span>
+            <span class="pill-icon pill-icon-moon" aria-hidden="true"><i data-lucide="moon" style="width: 12px; height: 12px;"></i></span>
+          </span>
+          <span class="theme-switch-thumb" id="theme-switch-thumb">
+            <i data-lucide="sun" style="width: 13px; height: 13px;"></i>
+          </span>
+        </button>
 
-    <!-- Navigation Bar: Clean 9 Tabs Across Full Width -->
-    <div class="header-nav-bar">
-      <div class="container nav-container">
-        <nav aria-label="Primary Navigation">
-          <ul class="nav-menu">
-            <li><a class="nav-link active-tab" data-tab="home">Home</a></li>
-            <li><a class="nav-link" data-tab="about">About Us</a></li>
-            <li><a class="nav-link" data-tab="capabilities">Capabilities</a></li>
-            <li><a class="nav-link" data-tab="infrastructure">Infrastructure</a></li>
-            <li><a class="nav-link" data-tab="rfq">Request a Quote</a></li>
-            <li><a class="nav-link" data-tab="customers">Customers</a></li>
-            <li><a class="nav-link" data-tab="gallery">Gallery</a></li>
-            <li><a class="nav-link" data-tab="downloads">Downloads</a></li>
-            <li><a class="nav-link" data-tab="contact">Contact</a></li>
-          </ul>
-        </nav>
+        <!-- Direct RFQ Action -->
+        <a class="btn-header-rfq" data-tab="rfq">
+          <i data-lucide="file-up" style="width: 15px; height: 15px;"></i>
+          <span>Get Quote</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+
     </div>
   </header>
+
+  <!-- Sticky Tab Line: Pinned to top on scroll for instant tab navigation -->
+  <nav class="header-nav-bar" id="sticky-tab-bar" aria-label="Primary Navigation">
+    <div class="container nav-container">
+      <ul class="nav-menu">
+        <li><a class="nav-link active-tab" data-tab="home">Home</a></li>
+        <li><a class="nav-link" data-tab="about">About Us</a></li>
+        <li><a class="nav-link" data-tab="capabilities">Capabilities</a></li>
+        <li><a class="nav-link" data-tab="infrastructure">Infrastructure</a></li>
+        <li><a class="nav-link" data-tab="rfq">Request a Quote</a></li>
+        <li><a class="nav-link" data-tab="customers">Customers</a></li>
+        <li><a class="nav-link" data-tab="gallery">Gallery</a></li>
+        <li><a class="nav-link" data-tab="downloads">Downloads</a></li>
+        <li><a class="nav-link" data-tab="contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- Mobile Slide-out Drawer -->
   <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>

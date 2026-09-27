@@ -535,12 +535,21 @@ button, input, select, textarea {
   color: #38bdf8;
 }
 
-/* Tier 2: Dedicated Navigation Row */
+/* Tier 2: Dedicated Navigation Row - STICKY TAB LINE */
 .header-nav-bar {
-  background: #06090f;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(6, 9, 15, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   padding: 0.55rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1.5px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55), 0 0 15px rgba(2, 132, 199, 0.15);
+  transition: all var(--transition);
 }
 
 .header-nav-bar .nav-container {
@@ -2344,7 +2353,25 @@ button, input, select, textarea {
   }
   
   .header-nav-bar {
+    display: block;
+    padding: 0.45rem 0;
+  }
+  .header-nav-bar .nav-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 1rem;
+  }
+  .header-nav-bar .nav-container::-webkit-scrollbar {
     display: none;
+  }
+  .header-nav-bar .nav-menu {
+    gap: 1.25rem;
+    flex-wrap: nowrap;
+  }
+  .header-nav-bar .nav-link {
+    font-size: 0.88rem;
+    padding: 0.35rem 0.2rem;
   }
 
   .header-phone-box {
@@ -2395,10 +2422,31 @@ button, input, select, textarea {
 
 @media (max-width: 768px) {
   .top-utility-bar,
-  .header-nav-bar,
   .header-phone-box,
   .btn-header-rfq {
     display: none;
+  }
+
+  .header-nav-bar {
+    display: block;
+    padding: 0.4rem 0;
+  }
+  .header-nav-bar .nav-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 0.75rem;
+  }
+  .header-nav-bar .nav-container::-webkit-scrollbar {
+    display: none;
+  }
+  .header-nav-bar .nav-menu {
+    gap: 1.15rem;
+    flex-wrap: nowrap;
+  }
+  .header-nav-bar .nav-link {
+    font-size: 0.84rem;
+    padding: 0.3rem 0.15rem;
   }
   
   .menu-toggle-btn {
